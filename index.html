@@ -539,8 +539,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: auto;
-        padding: 0 50px; /* 100px de espaçamento total entre logos */
+        width: 80px !important;
       }
 
       .passante-slide__image {
@@ -1624,11 +1623,12 @@
           loop: true,
           speed: 4300, // Ajuste a velocidade aqui (maior valor = mais lento)
           slidesPerView: 'auto',
-          spaceBetween: 0, // Espaçamento entre slides (ajustado via padding no CSS)
+          spaceBetween: 100, // Espaçamento de 100px entre as logos
           allowTouchMove: false, // Desativa interação manual para manter movimento contínuo
           autoplay: {
             delay: 0,
             disableOnInteraction: false,
+            pauseOnMouseEnter: false, // Não para ao passar o mouse
           },
           // Garante que o movimento seja linear e sem pausas
           freeMode: true,
