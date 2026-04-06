@@ -553,8 +553,167 @@
       }
 
       .passante-slide:hover .passante-slide__image {
-        filter: grayscale(0) brightness(1);
-        opacity: 1;
+        /* Removendo o contraste ao passar o cursor */
+        filter: grayscale(1) brightness(2);
+        opacity: 0.6;
+      }
+
+      /* Estilos Seção Sobre Nós - Custom */
+      .about-section-custom {
+        display: flex;
+        align-items: center;
+        padding: 80px 0;
+      }
+
+      .about-grid-custom {
+        display: grid;
+        grid-template-columns: 1fr 1.1fr;
+        align-items: center;
+        gap: 72px;
+        width: 100%;
+      }
+
+      .about-images-custom {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        min-height: 340px;
+      }
+
+      .avatar-wrap-custom {
+        position: relative;
+        width: 190px;
+        height: 190px;
+        border-radius: 50%;
+        overflow: hidden;
+        background: #d9d9d9;
+        border: 4px solid rgba(0, 27, 22, 0.95);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+        flex-shrink: 0;
+      }
+
+      .avatar-wrap-custom img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .avatar-wrap-custom:first-child {
+        transform: translateX(24px);
+        z-index: 1;
+      }
+
+      .avatar-wrap-custom:last-child {
+        transform: translateX(-24px);
+        z-index: 2;
+      }
+
+      .about-content-custom {
+        max-width: 620px;
+      }
+
+      .tag-custom {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 18px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 999px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        color: #fff;
+        margin-bottom: 28px;
+        background: rgba(255, 255, 255, 0.02);
+        backdrop-filter: blur(10px);
+      }
+
+      .tag-custom::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #00d38a;
+        box-shadow: 0 0 12px rgba(0, 211, 138, 0.55);
+      }
+
+      .about-text-custom {
+        font-size: 1.05rem;
+        line-height: 1.75;
+        color: rgba(255, 255, 255, 0.82);
+        max-width: 620px;
+      }
+
+      .social-custom {
+        margin-top: 28px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: #fff;
+        text-decoration: none;
+        background: rgba(255, 255, 255, 0.02);
+        transition: 0.25s ease;
+      }
+
+      .social-custom:hover {
+        transform: translateY(-2px);
+        border-color: rgba(0, 211, 138, 0.45);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .social-custom svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      @media (max-width: 980px) {
+        .about-grid-custom {
+          grid-template-columns: 1fr;
+          gap: 48px;
+        }
+
+        .about-images-custom {
+          justify-content: flex-start;
+        }
+
+        .about-content-custom {
+          max-width: 100%;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .about-section-custom {
+          padding: 56px 0;
+        }
+
+        .about-images-custom {
+          min-height: auto;
+          justify-content: center;
+        }
+
+        .avatar-wrap-custom {
+          width: 150px;
+          height: 150px;
+        }
+
+        .avatar-wrap-custom:first-child {
+          transform: translateX(18px);
+        }
+
+        .avatar-wrap-custom:last-child {
+          transform: translateX(-18px);
+        }
+
+        .about-text-custom {
+          font-size: 1rem;
+          line-height: 1.7;
+        }
       }
     </style>
   </head>
@@ -620,40 +779,40 @@
             <div class="swiper-wrapper passante-wrapper">
               <!-- Para trocar os logos, altere o atributo 'src' das imagens abaixo -->
               <div class="swiper-slide passante-slide">
-                <img src="https://picsum.photos/seed/logo1/200/100" alt="Logo Parceiro" class="passante-slide__image" referrerPolicy="no-referrer">
+                <img src="./assets/img/Logo_alumi.png" alt="logo alumi" class="passante-slide__image" referrerPolicy="no-referrer">
               </div>
               <div class="swiper-slide passante-slide">
-                <img src="https://picsum.photos/seed/logo2/200/100" alt="Logo Parceiro" class="passante-slide__image" referrerPolicy="no-referrer">
+                <img src="./assets/img/Logo_bentodoce.png" alt="logo bentodoce" class="passante-slide__image" referrerPolicy="no-referrer">
               </div>
               <div class="swiper-slide passante-slide">
-                <img src="https://picsum.photos/seed/logo3/200/100" alt="Logo Parceiro" class="passante-slide__image" referrerPolicy="no-referrer">
+                <img src="./assets/img/Logo_compartilhe.png" alt="logo compartilhe" class="passante-slide__image" referrerPolicy="no-referrer">
               </div>
               <div class="swiper-slide passante-slide">
-                <img src="https://picsum.photos/seed/logo4/200/100" alt="Logo Parceiro" class="passante-slide__image" referrerPolicy="no-referrer">
+                <img src="./assets/img/Logo_dany.png" alt="logo dany" class="passante-slide__image" referrerPolicy="no-referrer">
               </div>
               <div class="swiper-slide passante-slide">
-                <img src="https://picsum.photos/seed/logo5/200/100" alt="Logo Parceiro" class="passante-slide__image" referrerPolicy="no-referrer">
+                <img src="./assets/img/Logo_donna.png" alt="logo donna" class="passante-slide__image" referrerPolicy="no-referrer">
               </div>
               <div class="swiper-slide passante-slide">
-                <img src="https://picsum.photos/seed/logo6/200/100" alt="Logo Parceiro" class="passante-slide__image" referrerPolicy="no-referrer">
+                <img src="./assets/img/Logo_lavrasmais.png" alt="logo lavrasmais" class="passante-slide__image" referrerPolicy="no-referrer">
               </div>
               <div class="swiper-slide passante-slide">
-                <img src="https://picsum.photos/seed/logo7/200/100" alt="Logo Parceiro" class="passante-slide__image" referrerPolicy="no-referrer">
+                <img src="./assets/img/Logo_masterbrast.png" alt="logo masterbrast" class="passante-slide__image" referrerPolicy="no-referrer">
               </div>
               <div class="swiper-slide passante-slide">
-                <img src="https://picsum.photos/seed/logo8/200/100" alt="Logo Parceiro" class="passante-slide__image" referrerPolicy="no-referrer">
+                <img src="./assets/img/Logo_masterfue.png" alt="logo masterfue" class="passante-slide__image" referrerPolicy="no-referrer">
               </div>
               <div class="swiper-slide passante-slide">
-                <img src="https://picsum.photos/seed/logo9/200/100" alt="Logo Parceiro" class="passante-slide__image" referrerPolicy="no-referrer">
+                <img src="./assets/img/Logo_robert.png" alt="logo robert" class="passante-slide__image" referrerPolicy="no-referrer">
               </div>
               <div class="swiper-slide passante-slide">
-                <img src="https://picsum.photos/seed/logo10/200/100" alt="Logo Parceiro" class="passante-slide__image" referrerPolicy="no-referrer">
+                <img src="./assets/img/Logo_teamdeb.png" alt="logo teamdeb" class="passante-slide__image" referrerPolicy="no-referrer">
               </div>
               <div class="swiper-slide passante-slide">
-                <img src="https://picsum.photos/seed/logo11/200/100" alt="Logo Parceiro" class="passante-slide__image" referrerPolicy="no-referrer">
+                <img src="./assets/img/Logo_uomo" alt="logo uomo" class="passante-slide__image" referrerPolicy="no-referrer">
               </div>
               <div class="swiper-slide passante-slide">
-                <img src="https://picsum.photos/seed/logo12/200/100" alt="Logo Parceiro" class="passante-slide__image" referrerPolicy="no-referrer">
+                <img src="./assets/img/Logo_valedosips.png" alt="logo valedosips" class="passante-slide__image" referrerPolicy="no-referrer">
               </div>
             </div>
           </section>
@@ -766,7 +925,7 @@
 
                 <div class="flex justify-center md:justify-start">
                   <a href="https://calendly.com/tetragrowthgestao/growthcall" target="_blank" rel="noopener noreferrer" class="btn-apple-liquid-glass inline-flex">
-                    SOLICITAR DIAGNÓSTICO
+                    Crescer com Growth
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2">
                       <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
                     </svg>
@@ -860,12 +1019,14 @@
                     <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">Aprimoramento técnico</span>
                   </div>
                 </div>
-                <a href="https://calendly.com/tetragrowthgestao/growthcall" target="_blank" rel="noopener noreferrer" class="btn-apple-liquid-glass inline-flex">
-                  DESENHAR MINHA ESTRATÉGIA
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2">
-                    <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
-                  </svg>
-                </a>
+                <div class="flex justify-center md:justify-start">
+                  <a href="https://calendly.com/tetragrowthgestao/growthcall" target="_blank" rel="noopener noreferrer" class="btn-apple-liquid-glass inline-flex">
+                    Acessar acompanhado Tetra
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2">
+                      <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
           </section>
@@ -936,12 +1097,14 @@
                     <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">Direcionamento detalhado</span>
                   </div>
                 </div>
-                <a href="https://calendly.com/tetragrowthgestao/growthcall" target="_blank" rel="noopener noreferrer" class="btn-apple-liquid-glass inline-flex">
-                  EXECUTAR OPERAÇÃO
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2">
-                    <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
-                  </svg>
-                </a>
+                <div class="flex justify-center md:justify-start">
+                  <a href="https://calendly.com/tetragrowthgestao/growthcall" target="_blank" rel="noopener noreferrer" class="btn-apple-liquid-glass inline-flex">
+                    quero ser mentoreado
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2">
+                      <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
           </section>
@@ -1009,12 +1172,14 @@
                     <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">100% gratuito</span>
                   </div>
                 </div>
-                <a href="https://calendly.com/tetragrowthgestao/growthcall" target="_blank" rel="noopener noreferrer" class="btn-apple-liquid-glass inline-flex">
-                  SABER MAIS SOBRE MENTORIA
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2">
-                    <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
-                  </svg>
-                </a>
+                <div class="flex justify-center md:justify-start">
+                  <a href="https://calendly.com/tetragrowthgestao/growthcall" target="_blank" rel="noopener noreferrer" class="btn-apple-liquid-glass inline-flex">
+                    acessar diagnóstico
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2">
+                      <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
           </section>
@@ -1151,14 +1316,14 @@
                 </div>
               </div>
               
-              <div class="flex justify-start md:justify-center flex-wrap gap-4 mt-10">
+              <div class="flex justify-center md:justify-center flex-wrap gap-4 mt-10">
                 <a 
                   href="https://calendly.com/tetragrowthgestao/growthcall" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   class="btn-apple-liquid-glass"
                 >
-                  MARCAR CALL DE APRESENTAÇÃO
+                  desbloqueiar crescimento
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
                   </svg>
@@ -1363,7 +1528,7 @@
               <h2 class="!text-[30px] lg:!text-[36px] !leading-[38px] mb-6 lg:max-w-[800px] mx-auto text-left md:text-center !font-['Plus_Jakarta_Sans',_sans-serif]">Controle total sobre os resultados</h2>
               <p class="mb-24 text-base md:text-lg lg:max-w-[650px] mx-auto text-left md:text-center">Com uma estratégia voltada 100% para maximização de resultados, geração de receita e crescimento previsível da lucratividade do seu negócio</p>
               
-              <div class="flex flex-wrap justify-start md:justify-center gap-4">
+              <div class="flex flex-wrap justify-center md:justify-center gap-4">
                 <div class="glass-card px-8 py-4 rounded-xl text-sm text-white font-medium" style="width: 308.594px;">
                   Dados em tempo real
                 </div>
@@ -1381,22 +1546,36 @@
           </section>
 
           <!-- About -->
-          <section id="sobre" class="py-[30px] md:py-[60px] px-5 md:px-6">
-            <div class="max-w-3xl mx-auto text-left md:text-center">
-              <div class="inline-flex items-center gap-2 bg-emerald-500/10 px-3 py-1 rounded-full mb-6">
-                <div class="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
-                <span class="text-emerald-500 text-[10px] uppercase tracking-[0.2em] font-bold">Sobre Nós</span>
-              </div>
-              <p class="text-base md:text-xl md:leading-relaxed text-white mb-8 text-left md:text-justify">
-                Nascemos da fome de fazer pequenos e médios negócios se desenvolverem e ultrapassarem as barreiras do crescimento com uso de tecnologia, dados e estratégias. Pautamos principalmente que a performance deve ser aplicada a todo e qualquer negócio desde que você saiba exatamente o que está fazendo e o por que de estar sendo feito. Com técnica aprimorada e estratégias de ponta mostramos que marketing vai muito mais além do que se preocupar em gastar quatro horas do seu dia para gravar vídeo para o instagram. Marketing é entender de negócios, conhecer o produto, costruir preço e gerar demanda compradora.
-              </p>
-              <div class="flex justify-start md:justify-center gap-4">
-                <a href="#" class="w-12 h-12 rounded-full glass-card flex items-center justify-center hover:text-emerald-500 transition-colors">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-                </a>
-                <a href="#" class="w-12 h-12 rounded-full glass-card flex items-center justify-center hover:text-emerald-500 transition-colors">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-                </a>
+          <section id="sobre" class="about-section-custom">
+            <div class="max-w-7xl mx-auto px-5 md:px-6">
+              <div class="about-grid-custom">
+                <div class="about-images-custom">
+                  <div class="avatar-wrap-custom">
+                    <img src="./assets/img/foto_melquisedeque.png" alt="foto melquisedeque" referrerPolicy="no-referrer">
+                  </div>
+
+                  <div class="avatar-wrap-custom">
+                    <img src="./assets/img/foto_joao_paulo.jpg" alt="foto joão paulo" referrerPolicy="no-referrer">
+                  </div>
+                </div>
+
+                <div class="about-content-custom">
+                  <span class="tag-custom">Sobre nós</span>
+
+                  <p class="about-text-custom">
+                    A TETRA nasce da junção de duas ambições que unidas buscam levar para negócios o marketing real, focado em gerar resultados mensuráveis e lucros consistentes para empresas e especialistas online e off-line.
+                    <br><br>
+                    O marketing muda realidade de negócios e nós viemos para possibilitar que todos tenham acesso as estratégias e soluções que levaram negócios a faturamentos bilionários moduladas a sua realidade. Democratizar o acesso a grandes resultados não apenas uma missão, está escrita no DNA de crescimento Tetra.
+                  </p>
+
+                  <a href="#" class="social-custom" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                      <rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect>
+                      <circle cx="12" cy="12" r="4"></circle>
+                      <circle cx="17.5" cy="6.5" r="1"></circle>
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
           </section>
