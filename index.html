@@ -529,6 +529,7 @@
         overflow: hidden;
         border-top: 1px solid rgba(255, 255, 255, 0.05);
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        pointer-events: none; /* Impede qualquer interação do mouse ou toque */
       }
 
       .passante-wrapper {
@@ -1621,18 +1622,28 @@
         // Inicialização do Swiper para o Logo Ticker (Passante)
         const swiperPassante = new Swiper('#passante', {
           loop: true,
-          speed: 4300, // Ajuste a velocidade aqui (maior valor = mais lento)
+          speed: 4300, // Velocidade constante para movimento linear
           slidesPerView: 'auto',
-          spaceBetween: 100, // Espaçamento de 100px entre as logos
-          allowTouchMove: false, // Desativa interação manual para manter movimento contínuo
+          spaceBetween: 100, // Espaçamento entre as logos
+          allowTouchMove: false, // Desativa interação manual
+          grabCursor: false,
+          watchSlidesProgress: true,
+          loopAdditionalSlides: 10, // Garante que não haja saltos no loop
           autoplay: {
             delay: 0,
             disableOnInteraction: false,
-            pauseOnMouseEnter: false, // Não para ao passar o mouse
+            pauseOnMouseEnter: false,
+            waitForTransition: false,
           },
-          // Garante que o movimento seja linear e sem pausas
-          freeMode: true,
-          freeModeMomentum: false,
+          // Configuração para movimento linear perfeito
+          freeMode: {
+            enabled: true,
+            momentum: false,
+          },
+          // Desativa qualquer tipo de interação que possa pausar o movimento
+          noSwiping: true,
+          noSwipingClass: 'swiper-slide',
+          preventInteractionOnTransition: true,
         });
       });
 
