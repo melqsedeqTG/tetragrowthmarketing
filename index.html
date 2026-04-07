@@ -469,78 +469,56 @@
         }
       }
 
-      /* Carousel Styles */
-      .carousel-container {
-        --carousel-items: 12;          /* quantidade de cards ORIGINAIS */
-        --carousel-gap: 2rem;
-        --carousel-item-width: 400px;
+  /* Testimonials Carousel - igual ao comportamento do exemplo */
+  #cases-carousel {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    overflow: hidden;
+    position: relative;
+    padding-top: 0;
+    padding-bottom: 2rem;
+    pointer-events: none; /* nenhuma interação do usuário */
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    touch-action: none;
+  }
 
-        width: 100vw;
-        margin-left: calc(50% - 50vw);
-        overflow: hidden;
-        position: relative;
-        padding-top: 0;
-        padding-bottom: 2rem;
+  #cases-carousel .swiper-wrapper {
+    transition-timing-function: linear !important;
+    align-items: stretch;
+  }
 
-        /* sem interação */
-        pointer-events: none;
-        user-select: none;
-        -webkit-user-select: none;
-        -webkit-touch-callout: none;
-        touch-action: none;
-      }
+  #cases-carousel .swiper-slide {
+    width: 400px !important;
+    height: auto;
+    flex-shrink: 0;
+    pointer-events: none;
+    -webkit-user-drag: none;
+  }
 
-      .carousel-track {
-        display: flex;
-        gap: var(--carousel-gap);
-        width: max-content;
-        will-change: transform;
-        animation: scroll-carousel 32s linear infinite;
-      }
+  #cases-carousel .swiper-slide * {
+    pointer-events: none;
+    -webkit-user-drag: none;
+  }
 
-      .carousel-item {
-        width: var(--carousel-item-width);
-        flex-shrink: 0;
-        pointer-events: none;
-        -webkit-user-drag: none;
-      }
+  #cases-carousel .glass-card {
+    min-height: 350px;
+    transition: none !important;
+    transform: none !important;
+  }
 
-      .carousel-item * {
-        pointer-events: none;
-        -webkit-user-drag: none;
-      }
+  #cases-carousel .glass-card:hover {
+    border: 1px solid var(--color-glass-border) !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
 
-      /* neutraliza qualquer efeito de hover dos cards dentro do carrossel */
-      .carousel-item.glass-card {
-        transition: none;
-      }
-
-      .carousel-item.glass-card:hover {
-        border: 1px solid var(--color-glass-border);
-        box-shadow: none;
-        transform: none;
-      }
-
-      @keyframes scroll-carousel {
-        from {
-          transform: translateX(0);
-        }
-        to {
-          transform: translateX(
-            calc(-1 * var(--carousel-items) * (var(--carousel-item-width) + var(--carousel-gap)))
-          );
-        }
-      }
-
-      @media (max-width: 768px) {
-        .carousel-container {
-          --carousel-item-width: 85vw;
-        }
-
-        .carousel-track {
-          animation-duration: 28s;
-        }
-      }
+  @media (max-width: 768px) {
+    #cases-carousel .swiper-slide {
+      width: 85vw !important;
+    }
+  }
 
       /* Logo Ticker (Passante) Styles */
       #passante {
@@ -1362,103 +1340,61 @@
                 <h2 class="!text-[30px] lg:!text-[36px] !leading-[38px] font-medium text-[#f6e9d9] normal-case lg:max-w-[800px] mx-auto !font-['Plus_Jakarta_Sans',_sans-serif]">Cases reais de empresas que escalaram seu lucro com as nossas estratégias</h2>
               </div>
 
-              <div class="carousel-container">
-                <div class="carousel-track">
-                  <!-- Original Cards -->
-                  <div class="carousel-item glass-card p-8 rounded-2xl relative text-left md:text-center flex flex-col items-start md:items-center justify-center min-h-[350px]">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mb-6 opacity-50"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/></svg>
-                    <p class="text-[#F6E9D9] mb-8 leading-relaxed italic">"Com receio de lançar meu produto, eles vieram e não só me ajudaram a vender, me ajudaram a lançar e gerar demanda para vender todas as unidades e ter encomendas e reservas."</p>
-                    <div class="inline-block bg-emerald-500/10 text-emerald-500 text-xs font-bold px-3 py-1 rounded-full mb-6">
-                      200% de vendas realizadas
-                    </div>
-                    <div class="mt-auto">
-                      <div class="text-[#F6E9D9] font-bold text-sm">Ariana Bento</div>
-                      <div class="text-xs">Bento Doce</div>
-                    </div>
-                  </div>
-
-                  <div class="carousel-item glass-card p-8 rounded-2xl relative text-left md:text-center flex flex-col items-start md:items-center justify-center min-h-[350px]">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mb-6 opacity-50"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/></svg>
-                    <p class="text-[#F6E9D9] mb-8 leading-relaxed italic">"O trabalho de marketing estratégico desenvolvido foi crucial para reposicionar nossa empresa no mercado"</p>
-                    <div class="inline-block bg-emerald-500/10 text-emerald-500 text-xs font-bold px-3 py-1 rounded-full mb-6">
-                      Aumento de +30% de Faturamento
-                    </div>
-                    <div class="mt-auto">
-                      <div class="text-[#F6E9D9] font-bold text-sm">Walter Amorim</div>
-                      <div class="text-xs">Alumi</div>
+              <div id="cases-carousel" class="swiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="glass-card p-8 rounded-2xl relative text-left md:text-center flex flex-col items-start md:items-center justify-center min-h-[350px]">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mb-6 opacity-50"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/></svg>
+                      <p class="text-[#F6E9D9] mb-8 leading-relaxed italic">"Com receio de lançar meu produto, eles vieram e não só me ajudaram a vender, me ajudaram a lançar e gerar demanda para vender todas as unidades e ter encomendas e reservas."</p>
+                      <div class="inline-block bg-emerald-500/10 text-emerald-500 text-xs font-bold px-3 py-1 rounded-full mb-6">
+                        200% de vendas realizadas
+                      </div>
+                      <div class="mt-auto">
+                        <div class="text-[#F6E9D9] font-bold text-sm">Ariana Bento</div>
+                        <div class="text-xs">Bento Doce</div>
+                      </div>
                     </div>
                   </div>
 
-                  <div class="carousel-item glass-card p-8 rounded-2xl relative text-left md:text-center flex flex-col items-start md:items-center justify-center min-h-[350px]">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mb-6 opacity-50"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/></svg>
-                    <p class="text-[#F6E9D9] mb-8 leading-relaxed italic">"Mesmo na competição do varejo e com a dificuldade de vendas, vocês foram responsáveis por zerar todo o estoque de produtos gastando menos do que foi proposto para a campanha"</p>
-                    <div class="inline-block bg-emerald-500/10 text-emerald-500 text-xs font-bold px-3 py-1 rounded-full mb-6">
-                      ROAS de 149,9x
-                    </div>
-                    <div class="mt-auto">
-                      <div class="text-[#F6E9D9] font-bold text-sm">Alison Boas</div>
-                      <div class="text-xs">UOMO</div>
-                    </div>
-                  </div>
-
-                  <div class="carousel-item glass-card p-8 rounded-2xl relative text-left md:text-center flex flex-col items-start md:items-center justify-center min-h-[350px]">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mb-6 opacity-50"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/></svg>
-                    <p class="text-[#F6E9D9] mb-8 leading-relaxed italic">"Vocês foram além de apenas mentores, me mostraram exatamente como fazer, pra onde seguir e me entregaram muito além do que eu contratei e do que eu pude imaginar. Muito mais que um ambiente de ensino, vocês me deram um lugar para conversar e estar."</p>
-                    <div class="inline-block bg-emerald-500/10 text-emerald-500 text-xs font-bold px-3 py-1 rounded-full mb-6">
-                      Mentoria Individual
-                    </div>
-                    <div class="mt-auto">
-                      <div class="text-[#F6E9D9] font-bold text-sm">Amanda</div>
-                      <div class="text-xs">Social Media</div>
+                  <div class="swiper-slide">
+                    <div class="glass-card p-8 rounded-2xl relative text-left md:text-center flex flex-col items-start md:items-center justify-center min-h-[350px]">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mb-6 opacity-50"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/></svg>
+                      <p class="text-[#F6E9D9] mb-8 leading-relaxed italic">"O trabalho de marketing estratégico desenvolvido foi crucial para reposicionar nossa empresa no mercado"</p>
+                      <div class="inline-block bg-emerald-500/10 text-emerald-500 text-xs font-bold px-3 py-1 rounded-full mb-6">
+                        Aumento de +30% de Faturamento
+                      </div>
+                      <div class="mt-auto">
+                        <div class="text-[#F6E9D9] font-bold text-sm">Walter Amorim</div>
+                        <div class="text-xs">Alumi</div>
+                      </div>
                     </div>
                   </div>
 
-                  <!-- Duplicated Cards for Seamless Loop -->
-                  <div class="carousel-item glass-card p-8 rounded-2xl relative text-left md:text-center flex flex-col items-start md:items-center justify-center min-h-[350px]">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mb-6 opacity-50"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/></svg>
-                    <p class="text-[#F6E9D9] mb-8 leading-relaxed italic">"Com receio de lançar meu produto, eles vieram e não só me ajudaram a vender, me ajudaram a lançar e gerar demanda para vender todas as unidades e ter encomendas e reservas."</p>
-                    <div class="inline-block bg-emerald-500/10 text-emerald-500 text-xs font-bold px-3 py-1 rounded-full mb-6">
-                      200% de vendas realizadas
-                    </div>
-                    <div class="mt-auto">
-                      <div class="text-[#F6E9D9] font-bold text-sm">Ariana Bento</div>
-                      <div class="text-xs">Bento Doce</div>
-                    </div>
-                  </div>
-
-                  <div class="carousel-item glass-card p-8 rounded-2xl relative text-left md:text-center flex flex-col items-start md:items-center justify-center min-h-[350px]">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mb-6 opacity-50"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/></svg>
-                    <p class="text-[#F6E9D9] mb-8 leading-relaxed italic">"O trabalho de marketing estratégico desenvolvido foi crucial para reposicionar nossa empresa no mercado"</p>
-                    <div class="inline-block bg-emerald-500/10 text-emerald-500 text-xs font-bold px-3 py-1 rounded-full mb-6">
-                      Aumento de +30% de Faturamento
-                    </div>
-                    <div class="mt-auto">
-                      <div class="text-[#F6E9D9] font-bold text-sm">Walter Amorim</div>
-                      <div class="text-xs">Alumi</div>
+                  <div class="swiper-slide">
+                    <div class="glass-card p-8 rounded-2xl relative text-left md:text-center flex flex-col items-start md:items-center justify-center min-h-[350px]">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mb-6 opacity-50"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/></svg>
+                      <p class="text-[#F6E9D9] mb-8 leading-relaxed italic">"Mesmo na competição do varejo e com a dificuldade de vendas, vocês foram responsáveis por zerar todo o estoque de produtos gastando menos do que foi proposto para a campanha"</p>
+                      <div class="inline-block bg-emerald-500/10 text-emerald-500 text-xs font-bold px-3 py-1 rounded-full mb-6">
+                        ROAS de 149,9x
+                      </div>
+                      <div class="mt-auto">
+                        <div class="text-[#F6E9D9] font-bold text-sm">Alison Boas</div>
+                        <div class="text-xs">UOMO</div>
+                      </div>
                     </div>
                   </div>
 
-                  <div class="carousel-item glass-card p-8 rounded-2xl relative text-left md:text-center flex flex-col items-start md:items-center justify-center min-h-[350px]">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mb-6 opacity-50"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/></svg>
-                    <p class="text-[#F6E9D9] mb-8 leading-relaxed italic">"Mesmo na competição do varejo e com a dificuldade de vendas, vocês foram responsáveis por zerar todo o estoque de produtos gastando menos do que foi proposto para a campanha"</p>
-                    <div class="inline-block bg-emerald-500/10 text-emerald-500 text-xs font-bold px-3 py-1 rounded-full mb-6">
-                      ROAS de 149,9x
-                    </div>
-                    <div class="mt-auto">
-                      <div class="text-[#F6E9D9] font-bold text-sm">Alison Boas</div>
-                      <div class="text-xs">UOMO</div>
-                    </div>
-                  </div>
-
-                  <div class="carousel-item glass-card p-8 rounded-2xl relative text-left md:text-center flex flex-col items-start md:items-center justify-center min-h-[350px]">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mb-6 opacity-50"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/></svg>
-                    <p class="text-[#F6E9D9] mb-8 leading-relaxed italic">"Vocês foram além de apenas mentores, me mostraram exatamente como fazer, pra onde seguir e me entregaram muito além do que eu contratei e do que eu pude imaginar. Muito mais que um ambiente de ensino, vocês me deram um lugar para conversar e estar."</p>
-                    <div class="inline-block bg-emerald-500/10 text-emerald-500 text-xs font-bold px-3 py-1 rounded-full mb-6">
-                      Mentoria Individual
-                    </div>
-                    <div class="mt-auto">
-                      <div class="text-[#F6E9D9] font-bold text-sm">Amanda</div>
-                      <div class="text-xs">Social Media</div>
+                  <div class="swiper-slide">
+                    <div class="glass-card p-8 rounded-2xl relative text-left md:text-center flex flex-col items-start md:items-center justify-center min-h-[350px]">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mb-6 opacity-50"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/></svg>
+                      <p class="text-[#F6E9D9] mb-8 leading-relaxed italic">"Vocês foram além de apenas mentores, me mostraram exatamente como fazer, pra onde seguir e me entregaram muito além do que eu contratei e do que eu pude imaginar. Muito mais que um ambiente de ensino, vocês me deram um lugar para conversar e estar."</p>
+                      <div class="inline-block bg-emerald-500/10 text-emerald-500 text-xs font-bold px-3 py-1 rounded-full mb-6">
+                        Mentoria Individual
+                      </div>
+                      <div class="mt-auto">
+                        <div class="text-[#F6E9D9] font-bold text-sm">Amanda</div>
+                        <div class="text-xs">Social Media</div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1640,31 +1576,74 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', () => {
-        // Inicialização do Swiper para o Logo Ticker (Passante)
-        const swiperPassante = new Swiper('#passante', {
+        // Logo ticker
+        new Swiper('#passante', {
           loop: true,
-          speed: 4300, // Velocidade constante para movimento linear
+          speed: 4300,
           slidesPerView: 'auto',
-          spaceBetween: 100, // Espaçamento entre as logos
-          allowTouchMove: false, // Desativa interação manual
+          spaceBetween: 100,
+          allowTouchMove: false,
+          simulateTouch: false,
           grabCursor: false,
           watchSlidesProgress: true,
-          loopAdditionalSlides: 10, // Garante que não haja saltos no loop
+          loopAdditionalSlides: 10,
           autoplay: {
             delay: 0,
             disableOnInteraction: false,
             pauseOnMouseEnter: false,
             waitForTransition: false,
           },
-          // Configuração para movimento linear perfeito
           freeMode: {
             enabled: true,
             momentum: false,
           },
-          // Desativa qualquer tipo de interação que possa pausar o movimento
           noSwiping: true,
           noSwipingClass: 'swiper-slide',
           preventInteractionOnTransition: true,
+          watchOverflow: false,
+        });
+
+        // Testimonials ticker contínuo
+        new Swiper('#cases-carousel', {
+          loop: true,
+          speed: 4500,
+          slidesPerView: 'auto',
+          spaceBetween: 32,
+          allowTouchMove: false,
+          simulateTouch: false,
+          grabCursor: false,
+          shortSwipes: false,
+          longSwipes: false,
+          followFinger: false,
+          resistance: false,
+          watchSlidesProgress: true,
+          loopAdditionalSlides: 4,
+          autoplay: {
+            delay: 0,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: false,
+            waitForTransition: false,
+          },
+          freeMode: {
+            enabled: true,
+            momentum: false,
+          },
+          noSwiping: true,
+          noSwipingClass: 'swiper-slide',
+          preventInteractionOnTransition: true,
+          watchOverflow: false,
+          observer: true,
+          observeParents: true,
+          breakpoints: {
+            0: {
+              spaceBetween: 24,
+              speed: 3800,
+            },
+            769: {
+              spaceBetween: 32,
+              speed: 4500,
+            }
+          }
         });
       });
 
@@ -1678,8 +1657,7 @@
               top: target.offsetTop - 80,
               behavior: 'smooth'
             });
-            
-            // Update active link
+
             document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
             this.classList.add('active');
           }
@@ -1710,18 +1688,18 @@
         if ('loading' in HTMLImageElement.prototype) {
           images.forEach(img => img.setAttribute('loading', 'lazy'));
         }
-        
+
         console.log('Tetra Growth: Site carregado e otimizado.');
       });
 
-      // Efeito de Spotlight Interativo (Apple Glass) para todos os botões de vidro
+      // Efeito de Spotlight Interativo para botões
       const allGlassBtns = document.querySelectorAll('.btn-apple-glass, .btn-apple-liquid-glass');
       allGlassBtns.forEach(btn => {
         btn.addEventListener('mousemove', (e) => {
           const rect = btn.getBoundingClientRect();
           const x = e.clientX - rect.left;
           const y = e.clientY - rect.top;
-          
+
           btn.style.setProperty('--x', `${x}px`);
           btn.style.setProperty('--y', `${y}px`);
         });
