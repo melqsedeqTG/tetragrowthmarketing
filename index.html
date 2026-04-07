@@ -5,10 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tetra Growth - Growth Marketing Estratégico</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
     <style type="text/css">
       .container-principal {
         margin: 0 auto;
@@ -62,7 +69,8 @@
         --primary: 161 84% 39%;
       }
 
-      html, body {
+      html,
+      body {
         overflow-x: hidden;
         width: 100%;
       }
@@ -77,7 +85,11 @@
         min-height: 100vh;
       }
 
-      h1, h3, h4, h5, h6 {
+      h1,
+      h3,
+      h4,
+      h5,
+      h6 {
         color: white;
         font-weight: bold;
         font-family: var(--font-sans);
@@ -111,37 +123,28 @@
         padding: 28px;
         border-radius: 32px;
         overflow: hidden;
-        color: rgba(255,255,255,0.96);
+        color: rgba(255, 255, 255, 0.96);
         transform-style: preserve-3d;
-        transform:
-          rotateX(var(--rx))
-          rotateY(var(--ry))
-          translateZ(0);
-
+        transform: rotateX(var(--rx)) rotateY(var(--ry)) translateZ(0);
         transition:
           transform 180ms ease,
           box-shadow 220ms ease,
           border-color 220ms ease,
           background 220ms ease,
           backdrop-filter 220ms ease;
-
         background: linear-gradient(
           180deg,
-          rgba(255,255,255,0.060) 0%,
-          rgba(255,255,255,0.038) 48%,
-          rgba(255,255,255,0.026) 100%
+          rgba(255, 255, 255, 0.06) 0%,
+          rgba(255, 255, 255, 0.038) 48%,
+          rgba(255, 255, 255, 0.026) 100%
         );
-
-        border: 1px solid rgba(255,255,255,0.12);
-
+        border: 1px solid rgba(255, 255, 255, 0.12);
         backdrop-filter: blur(30px) saturate(112%) contrast(1.01);
         -webkit-backdrop-filter: blur(30px) saturate(112%) contrast(1.01);
-
         box-shadow:
-          0 20px 50px rgba(0,0,0,0.22),
-          inset 0 1px 0 rgba(255,255,255,0.14),
-          inset 0 -1px 0 rgba(255,255,255,0.025);
-
+          0 20px 50px rgba(0, 0, 0, 0.22),
+          inset 0 1px 0 rgba(255, 255, 255, 0.14),
+          inset 0 -1px 0 rgba(255, 255, 255, 0.025);
         min-height: 250px;
         display: flex;
         flex-direction: column;
@@ -152,11 +155,11 @@
       }
 
       .liquid-glass:hover {
-        border-color: rgba(255,255,255,0.15);
+        border-color: rgba(255, 255, 255, 0.15);
         box-shadow:
-          0 26px 64px rgba(0,0,0,0.26),
-          inset 0 1px 0 rgba(255,255,255,0.16),
-          inset 0 -1px 0 rgba(255,255,255,0.03);
+          0 26px 64px rgba(0, 0, 0, 0.26),
+          inset 0 1px 0 rgba(255, 255, 255, 0.16),
+          inset 0 -1px 0 rgba(255, 255, 255, 0.03);
       }
 
       .liquid-glass > * {
@@ -174,23 +177,21 @@
         z-index: 1;
         opacity: calc(var(--glow-opacity) * 0.7);
         transition: opacity 320ms ease;
-
         background:
           radial-gradient(
             180px 110px at var(--mx) var(--my),
-            rgba(255,255,255,0.040) 0%,
-            rgba(255,255,255,0.020) 30%,
-            rgba(255,255,255,0.008) 52%,
+            rgba(255, 255, 255, 0.04) 0%,
+            rgba(255, 255, 255, 0.02) 30%,
+            rgba(255, 255, 255, 0.008) 52%,
             transparent 78%
           ),
           linear-gradient(
             145deg,
-            rgba(255,255,255,0.045) 0%,
-            rgba(255,255,255,0.018) 22%,
-            rgba(255,255,255,0.006) 44%,
-            rgba(255,255,255,0) 68%
+            rgba(255, 255, 255, 0.045) 0%,
+            rgba(255, 255, 255, 0.018) 22%,
+            rgba(255, 255, 255, 0.006) 44%,
+            rgba(255, 255, 255, 0) 68%
           );
-
         mix-blend-mode: screen;
       }
 
@@ -201,13 +202,11 @@
         border-radius: calc(32px - 1px);
         pointer-events: none;
         z-index: 2;
-
-        background:
-          linear-gradient(
-            180deg,
-            rgba(255,255,255,0.035),
-            rgba(255,255,255,0.010)
-          );
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.035),
+          rgba(255, 255, 255, 0.01)
+        );
       }
 
       .liquid-glass h2 {
@@ -216,7 +215,7 @@
         line-height: 1.05 !important;
         letter-spacing: -0.03em !important;
         font-weight: 800 !important;
-        text-shadow: 0 1px 10px rgba(0,0,0,0.08) !important;
+        text-shadow: 0 1px 10px rgba(0, 0, 0, 0.08) !important;
         color: white !important;
         font-family: var(--font-sans) !important;
         text-transform: none !important;
@@ -224,7 +223,7 @@
 
       .liquid-glass p {
         margin: 0 !important;
-        color: rgba(255,255,255,0.74) !important;
+        color: rgba(255, 255, 255, 0.74) !important;
         line-height: 1.55 !important;
         font-size: 0.98rem !important;
         max-width: 34ch !important;
@@ -232,7 +231,12 @@
       }
 
       .glass-card {
-        background-image: linear-gradient(135deg, rgb(18, 38, 30) 0%, rgb(15, 26, 22) 70%, rgb(41, 39, 30) 100%);
+        background-image: linear-gradient(
+          135deg,
+          rgb(18, 38, 30) 0%,
+          rgb(15, 26, 22) 70%,
+          rgb(41, 39, 30) 100%
+        );
         border: 1px solid var(--color-glass-border);
         backdrop-filter: blur(4px);
         transition: all 0.3s ease;
@@ -287,7 +291,12 @@
       }
 
       .card-gradient {
-        background-image: linear-gradient(135deg, rgb(18, 38, 30) 0%, rgb(15, 26, 22) 70%, rgb(41, 39, 30) 100%);
+        background-image: linear-gradient(
+          135deg,
+          rgb(18, 38, 30) 0%,
+          rgb(15, 26, 22) 70%,
+          rgb(41, 39, 30) 100%
+        );
         border: 1px solid var(--color-glass-border);
         transition: all 0.3s ease;
       }
@@ -328,10 +337,22 @@
         color: white;
       }
 
-      h1 { font-size: clamp(32px, 5vw, 54px); }
-      h2 { font-size: clamp(24px, 4vw, 38px); }
-      h3 { font-size: clamp(20px, 3vw, 28px); }
-      p, a { font-size: clamp(16px, 1.2vw, 18px); }
+      h1 {
+        font-size: clamp(32px, 5vw, 54px);
+      }
+
+      h2 {
+        font-size: clamp(24px, 4vw, 38px);
+      }
+
+      h3 {
+        font-size: clamp(20px, 3vw, 28px);
+      }
+
+      p,
+      a {
+        font-size: clamp(16px, 1.2vw, 18px);
+      }
 
       img {
         max-width: 100%;
@@ -339,56 +360,82 @@
       }
 
       @media (max-width: 923px) {
-        h1, h2, h3, p, a, span, li {
+        h1,
+        h2,
+        h3,
+        p,
+        a,
+        span,
+        li {
           text-align: left !important;
           font-size: 16px !important;
         }
-        .btn-primary, .btn-apple-glass, .btn-apple-liquid-glass, button {
+
+        .btn-primary,
+        .btn-apple-glass,
+        .btn-apple-liquid-glass,
+        button {
           text-align: center !important;
           justify-content: center !important;
           font-size: 14px !important;
         }
-        h1, h1 span {
+
+        h1,
+        h1 span {
           font-size: 36px !important;
         }
-        h2, h2 span {
+
+        h2,
+        h2 span {
           font-size: 30px !important;
-          font-family: 'Plus Jakarta Sans', sans-serif !important;
+          font-family: "Plus Jakarta Sans", sans-serif !important;
           text-transform: lowercase !important;
           font-weight: 500 !important;
         }
+
         h2::first-letter {
           text-transform: uppercase !important;
         }
+
         h3 {
           font-size: 24px !important;
         }
+
         .card-gradient span {
           font-size: 10px !important;
         }
+
         .carousel-item p {
           font-size: 12px !important;
         }
+
         .carousel-item svg {
           width: 15px !important;
           height: 15px !important;
         }
+
         .carousel-item .inline-block {
           font-size: 12px !important;
         }
-        img, .btn-primary {
+
+        img,
+        .btn-primary {
           margin-left: 0 !important;
           margin-right: auto !important;
           display: block !important;
           width: fit-content !important;
         }
+
         .btn-primary {
           display: flex !important;
         }
       }
 
       @media (max-width: 728px) {
-        .btn-primary, button, a.btn-primary, [role="button"] {
+        .btn-primary,
+        button,
+        a.btn-primary,
+        [role="button"] {
           border-radius: 8px !important;
           padding: 12px 24px !important;
           width: auto !important;
@@ -405,38 +452,45 @@
         }
       }
 
-      .btn-apple-glass, .btn-apple-liquid-glass {
+      .btn-apple-glass,
+      .btn-apple-liquid-glass {
         position: relative;
         display: inline-flex;
         align-items: center;
         gap: 12px;
         padding: 16px 36px;
         border-radius: 999px;
-        background: radial-gradient(
-          circle at var(--x, 50%) var(--y, 50%),
-          rgba(255, 255, 255, 0.15) 0%,
-          transparent 100%
-        ), rgba(255, 255, 255, 0.05);
+        background:
+          radial-gradient(
+            circle at var(--x, 50%) var(--y, 50%),
+            rgba(255, 255, 255, 0.15) 0%,
+            transparent 100%
+          ),
+          rgba(255, 255, 255, 0.05);
         backdrop-filter: blur(20px) saturate(180%);
         -webkit-backdrop-filter: blur(20px) saturate(180%);
         border: 1px solid rgba(255, 255, 255, 0.15);
         box-shadow:
           0 8px 32px rgba(0, 0, 0, 0.3),
           inset 0 1px 1px rgba(255, 255, 255, 0.1);
-        color: #FFFFFF !important;
+        color: #ffffff !important;
         font-family: var(--font-sans);
         font-size: 14px;
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.1em;
         text-decoration: none;
-        transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+        transition:
+          transform 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+          border-color 0.3s ease,
+          box-shadow 0.3s ease;
         overflow: hidden;
         cursor: pointer;
         z-index: 10;
       }
 
-      .btn-apple-glass:hover, .btn-apple-liquid-glass:hover {
+      .btn-apple-glass:hover,
+      .btn-apple-liquid-glass:hover {
         border-color: rgba(255, 255, 255, 0.3);
         transform: translateY(-3px) scale(1.02);
         box-shadow:
@@ -444,13 +498,15 @@
           inset 0 1px 2px rgba(255, 255, 255, 0.25);
       }
 
-      .btn-apple-glass:active, .btn-apple-liquid-glass:active {
+      .btn-apple-glass:active,
+      .btn-apple-liquid-glass:active {
         transform: scale(0.97);
         background: rgba(255, 255, 255, 0.03);
       }
 
       @media (max-width: 728px) {
-        .btn-apple-glass, .btn-apple-liquid-glass {
+        .btn-apple-glass,
+        .btn-apple-liquid-glass {
           padding: 14px 28px !important;
           width: auto !important;
           display: inline-flex !important;
@@ -458,111 +514,71 @@
         }
       }
 
-      /* Testimonials Carousel - fluxo contínuo real */
+      /* Testimonials Carousel - corrigido */
       #cases-carousel {
-        --cases-gap: 32px;
-        --cases-item-width: 400px;
-        --cases-loop-width: 0px;
-
-        width: 100vw;
-        margin-left: calc(50% - 50vw);
+        width: 100%;
+        max-width: 100%;
         overflow: hidden;
         position: relative;
-        padding-top: 0;
         padding-bottom: 2rem;
-        pointer-events: none;
-        user-select: none;
-        -webkit-user-select: none;
-        -webkit-touch-callout: none;
-        touch-action: none;
       }
 
       #cases-carousel .swiper-wrapper {
-        display: flex !important;
         align-items: stretch;
-        gap: var(--cases-gap);
-        width: max-content !important;
-        transition: none !important;
-        transform: translate3d(0, 0, 0);
-        will-change: transform;
-        animation: cases-marquee 40s linear infinite;
       }
 
       #cases-carousel .swiper-slide {
-        width: var(--cases-item-width) !important;
-        height: auto !important;
-        flex: 0 0 var(--cases-item-width);
-        margin-right: 0 !important;
-        pointer-events: none;
-        -webkit-user-drag: none;
-      }
-
-      #cases-carousel .swiper-slide * {
-        pointer-events: none;
-        -webkit-user-drag: none;
+        height: auto;
       }
 
       #cases-carousel .glass-card {
         min-height: 350px;
-        transition: none !important;
-        transform: none !important;
-      }
-
-      #cases-carousel .glass-card:hover {
-        border: 1px solid var(--color-glass-border) !important;
-        box-shadow: none !important;
-        transform: none !important;
-      }
-
-      @keyframes cases-marquee {
-        from {
-          transform: translate3d(0, 0, 0);
-        }
-        to {
-          transform: translate3d(calc(-1 * var(--cases-loop-width)), 0, 0);
-        }
       }
 
       @media (max-width: 768px) {
-        #cases-carousel {
-          --cases-gap: 24px;
-          --cases-item-width: 85vw;
+        #cases-carousel .glass-card {
+          min-height: 320px;
         }
       }
 
-      #passante {
-        width: 100%;
-        padding: 40px 0;
-        background: transparent;
-        overflow: hidden;
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      /* Logo Ticker (Passante) - igual ao original */
+      .section.home2 {
+        border-top: 1px solid #1c202b;
+        border-bottom: 1px solid #1c202b;
+        min-height: 0;
+        padding-top: 0.125rem;
+        padding-bottom: 0.125rem;
+      }
+
+      #passante.passante.swiper {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
         pointer-events: none;
       }
 
-      .passante-wrapper {
+      #passante .swiper-wrapper {
         transition-timing-function: linear !important;
       }
 
-      .passante-slide {
+      .passante-wrapper.swiper-wrapper.passante1 {
         display: flex;
-        align-items: center;
+      }
+
+      .passante-slide.swiper-slide {
+        display: flex;
         justify-content: center;
-        width: 80px !important;
+        align-self: center;
+        align-items: center;
       }
 
       .passante-slide__image {
-        width: 80px;
-        height: 80px;
-        filter: grayscale(1) brightness(2);
-        opacity: 0.6;
-        transition: all 0.3s ease;
+        display: block;
+        max-width: 100%;
+        height: auto;
         object-fit: contain;
-      }
-
-      .passante-slide:hover .passante-slide__image {
-        filter: grayscale(1) brightness(2);
-        opacity: 0.6;
+        opacity: 1;
+        filter: none;
+        transition: none;
       }
 
       .about-section-custom {
@@ -723,13 +739,16 @@
       }
     </style>
   </head>
+
   <body>
     <div class="container-principal">
       <div id="root">
         <div class="min-h-screen">
           <nav class="absolute md:fixed top-0 left-0 right-0 z-50 bg-black/50 backdrop-blur-md border-b border-white/5 h-20">
             <div class="max-w-7xl mx-auto px-5 md:px-[30px] h-full flex items-center justify-center gap-8 md:gap-24">
-              <div class="text-white font-extrabold text-xl tracking-tighter logo-font uppercase">Tetra <span class="text-emerald-500">Growth</span></div>
+              <div class="text-white font-extrabold text-xl tracking-tighter logo-font uppercase">
+                Tetra <span class="text-emerald-500">Growth</span>
+              </div>
 
               <div class="hidden md:flex items-center gap-12">
                 <a href="#inicio" class="nav-link active">Início</a>
@@ -751,14 +770,22 @@
           </nav>
 
           <main>
-            <section id="inicio" class="min-h-screen pt-20 pb-[60px] px-5 md:px-[30px] overflow-hidden relative text-left md:text-center flex flex-col justify-center items-start md:items-center">
+            <section
+              id="inicio"
+              class="min-h-screen pt-20 pb-[60px] px-5 md:px-[30px] overflow-hidden relative text-left md:text-center flex flex-col justify-center items-start md:items-center"
+            >
               <div class="w-full mx-auto">
                 <div class="w-full mx-auto pt-[100px] pb-0 lg:pl-[80px] lg:pr-[80px] lg:pt-[100px] lg:pb-0">
-                  <h1 class="!text-[32px] !leading-[38px] lg:!text-[60px] lg:!leading-[72px] text-left md:text-center mb-6 font-bold lg:font-semibold !normal-case lg:!uppercase text-white max-w-4xl mx-auto !font-['Plus_Jakarta_Sans',_sans-serif]">
+                  <h1
+                    class="!text-[32px] !leading-[38px] lg:!text-[60px] lg:!leading-[72px] text-left md:text-center mb-6 font-bold lg:font-semibold !normal-case lg:!uppercase text-white max-w-4xl mx-auto !font-['Plus_Jakarta_Sans',_sans-serif]"
+                  >
                     Gerando lucros previsíveis através do marketing
                   </h1>
                   <p class="text-base md:text-lg mb-10 w-full mx-auto leading-relaxed text-[#b4b4b4] border-[#e5e9ed]">
-                    Nunca mais sofra com a falta de clientes e dificuldades para vender com consciência e recorrência. <span class="hidden md:inline">Tenha uma estrutura que te possibilite saber exatamente o que funciona no seu marketing e no seu negócio.</span>
+                    Nunca mais sofra com a falta de clientes e dificuldades para vender com consciência e recorrência.
+                    <span class="hidden md:inline">
+                      Tenha uma estrutura que te possibilite saber exatamente o que funciona no seu marketing e no seu negócio.
+                    </span>
                   </p>
                   <div class="flex justify-center flex-wrap gap-4 mt-10">
                     <a
@@ -769,7 +796,8 @@
                     >
                       QUERO ESCALAR MEU LUCRO
                       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
                       </svg>
                     </a>
                   </div>
@@ -777,43 +805,45 @@
               </div>
             </section>
 
-            <section id="passante" class="swiper">
-              <div class="swiper-wrapper passante-wrapper">
-                <div class="swiper-slide passante-slide">
-                  <img src="./assets/img/Logo_alumi.png" alt="logo alumi" class="passante-slide__image" referrerPolicy="no-referrer">
-                </div>
-                <div class="swiper-slide passante-slide">
-                  <img src="./assets/img/Logo_bentodoce.png" alt="logo bentodoce" class="passante-slide__image" referrerPolicy="no-referrer">
-                </div>
-                <div class="swiper-slide passante-slide">
-                  <img src="./assets/img/Logo_compartilhe.png" alt="logo compartilhe" class="passante-slide__image" referrerPolicy="no-referrer">
-                </div>
-                <div class="swiper-slide passante-slide">
-                  <img src="./assets/img/Logo_dany.png" alt="logo dany" class="passante-slide__image" referrerPolicy="no-referrer">
-                </div>
-                <div class="swiper-slide passante-slide">
-                  <img src="./assets/img/Logo_donna.png" alt="logo donna" class="passante-slide__image" referrerPolicy="no-referrer">
-                </div>
-                <div class="swiper-slide passante-slide">
-                  <img src="./assets/img/Logo_lavrasmais.png" alt="logo lavrasmais" class="passante-slide__image" referrerPolicy="no-referrer">
-                </div>
-                <div class="swiper-slide passante-slide">
-                  <img src="./assets/img/Logo_masterbrast.png" alt="logo masterbrast" class="passante-slide__image" referrerPolicy="no-referrer">
-                </div>
-                <div class="swiper-slide passante-slide">
-                  <img src="./assets/img/Logo_masterfue.png" alt="logo masterfue" class="passante-slide__image" referrerPolicy="no-referrer">
-                </div>
-                <div class="swiper-slide passante-slide">
-                  <img src="./assets/img/Logo_robert.png" alt="logo robert" class="passante-slide__image" referrerPolicy="no-referrer">
-                </div>
-                <div class="swiper-slide passante-slide">
-                  <img src="./assets/img/Logo_teamdeb.png" alt="logo teamdeb" class="passante-slide__image" referrerPolicy="no-referrer">
-                </div>
-                <div class="swiper-slide passante-slide">
-                  <img src="./assets/img/Logo_uomo" alt="logo uomo" class="passante-slide__image" referrerPolicy="no-referrer">
-                </div>
-                <div class="swiper-slide passante-slide">
-                  <img src="./assets/img/Logo_valedosips.png" alt="logo valedosips" class="passante-slide__image" referrerPolicy="no-referrer">
+            <section class="section home2">
+              <div id="passante" class="passante swiper">
+                <div class="passante-wrapper swiper-wrapper passante1">
+                  <div class="passante-slide swiper-slide">
+                    <img src="./assets/img/Logo_alumi.png" loading="eager" alt="logo alumi" class="passante-slide__image" referrerpolicy="no-referrer" />
+                  </div>
+                  <div class="passante-slide swiper-slide">
+                    <img src="./assets/img/Logo_bentodoce.png" loading="eager" alt="logo bentodoce" class="passante-slide__image" referrerpolicy="no-referrer" />
+                  </div>
+                  <div class="passante-slide swiper-slide">
+                    <img src="./assets/img/Logo_compartilhe.png" loading="eager" alt="logo compartilhe" class="passante-slide__image" referrerpolicy="no-referrer" />
+                  </div>
+                  <div class="passante-slide swiper-slide">
+                    <img src="./assets/img/Logo_dany.png" loading="eager" alt="logo dany" class="passante-slide__image" referrerpolicy="no-referrer" />
+                  </div>
+                  <div class="passante-slide swiper-slide">
+                    <img src="./assets/img/Logo_donna.png" loading="eager" alt="logo donna" class="passante-slide__image" referrerpolicy="no-referrer" />
+                  </div>
+                  <div class="passante-slide swiper-slide">
+                    <img src="./assets/img/Logo_lavrasmais.png" loading="eager" alt="logo lavrasmais" class="passante-slide__image" referrerpolicy="no-referrer" />
+                  </div>
+                  <div class="passante-slide swiper-slide">
+                    <img src="./assets/img/Logo_masterbrast.png" loading="eager" alt="logo masterbrast" class="passante-slide__image" referrerpolicy="no-referrer" />
+                  </div>
+                  <div class="passante-slide swiper-slide">
+                    <img src="./assets/img/Logo_masterfue.png" loading="eager" alt="logo masterfue" class="passante-slide__image" referrerpolicy="no-referrer" />
+                  </div>
+                  <div class="passante-slide swiper-slide">
+                    <img src="./assets/img/Logo_robert.png" loading="eager" alt="logo robert" class="passante-slide__image" referrerpolicy="no-referrer" />
+                  </div>
+                  <div class="passante-slide swiper-slide">
+                    <img src="./assets/img/Logo_teamdeb.png" loading="eager" alt="logo teamdeb" class="passante-slide__image" referrerpolicy="no-referrer" />
+                  </div>
+                  <div class="passante-slide swiper-slide">
+                    <img src="./assets/img/Logo_uomo" loading="eager" alt="logo uomo" class="passante-slide__image" referrerpolicy="no-referrer" />
+                  </div>
+                  <div class="passante-slide swiper-slide">
+                    <img src="./assets/img/Logo_valedosips.png" loading="eager" alt="logo valedosips" class="passante-slide__image" referrerpolicy="no-referrer" />
+                  </div>
                 </div>
               </div>
             </section>
@@ -821,11 +851,13 @@
             <section id="performance" class="pt-[30px] pb-[30px] md:pt-[60px] md:pb-[60px] px-5 md:px-6">
               <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
                 <div class="w-full md:w-1/2">
-                  <img src="https://picsum.photos/seed/diagnostico/800/600" alt="Performance de Growth" class="rounded-2xl w-full shadow-2xl border border-white/10" referrerPolicy="no-referrer">
+                  <img src="https://picsum.photos/seed/diagnostico/800/600" alt="Performance de Growth" class="rounded-2xl w-full shadow-2xl border border-white/10" referrerpolicy="no-referrer" />
                 </div>
                 <div class="w-full md:w-1/2 text-left">
                   <h2 class="!text-[30px] lg:!text-[36px] !leading-[38px] mb-6 !font-['Plus_Jakarta_Sans',_sans-serif] text-[#f6e9d9]">Growth Marketing</h2>
-                  <p class="text-base md:text-lg text-emerald-500 font-medium mb-4">Transforme demanda em lucro para seu negócio de forma previsível</p>
+                  <p class="text-base md:text-lg text-emerald-500 font-medium mb-4">
+                    Transforme demanda em lucro para seu negócio de forma previsível
+                  </p>
 
                   <div class="mb-10 max-w-[420px] w-full" style="padding: 8px 0; color: #fff;">
                     <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -834,7 +866,9 @@
                           <path d="M4 12h6M14 6h6M14 18h6M10 4v16" />
                         </svg>
                       </div>
-                      <span style="font-size: 17px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: Arial, sans-serif;">Estratégias para vender com mais lucro</span>
+                      <span style="font-size: 17px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: Arial, sans-serif;">
+                        Estratégias para vender com mais lucro
+                      </span>
                     </div>
 
                     <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -844,7 +878,9 @@
                           <path d="M20 20l-3.5-3.5"></path>
                         </svg>
                       </div>
-                      <span style="font-size: 17px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: Arial, sans-serif;">Especialistas em performance</span>
+                      <span style="font-size: 17px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: Arial, sans-serif;">
+                        Especialistas em performance
+                      </span>
                     </div>
 
                     <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -855,7 +891,9 @@
                           <path d="M5 9l10 10"></path>
                         </svg>
                       </div>
-                      <span style="font-size: 17px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: Arial, sans-serif;">Tráfego Pago Avançado</span>
+                      <span style="font-size: 17px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: Arial, sans-serif;">
+                        Tráfego Pago Avançado
+                      </span>
                     </div>
 
                     <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -867,7 +905,9 @@
                           <path d="M8 15h5"></path>
                         </svg>
                       </div>
-                      <span style="font-size: 17px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: Arial, sans-serif;">Estruturação de ICP Completa</span>
+                      <span style="font-size: 17px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: Arial, sans-serif;">
+                        Estruturação de ICP Completa
+                      </span>
                     </div>
 
                     <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -879,7 +919,9 @@
                           <path d="M17 16v-4"></path>
                         </svg>
                       </div>
-                      <span style="font-size: 17px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: Arial, sans-serif;">Análise Completa de Marketing e Vendas</span>
+                      <span style="font-size: 17px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: Arial, sans-serif;">
+                        Análise Completa de Marketing e Vendas
+                      </span>
                     </div>
 
                     <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -888,7 +930,9 @@
                           <path d="M3 12h5l3-8 4 16 3-8h3"></path>
                         </svg>
                       </div>
-                      <span style="font-size: 17px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: Arial, sans-serif;">Diagnóstico de jornada de conversão do cliente</span>
+                      <span style="font-size: 17px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: Arial, sans-serif;">
+                        Diagnóstico de jornada de conversão do cliente
+                      </span>
                     </div>
 
                     <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -898,7 +942,9 @@
                           <circle cx="12" cy="12" r="9"></circle>
                         </svg>
                       </div>
-                      <span style="font-size: 17px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: Arial, sans-serif;">Análises periódicas</span>
+                      <span style="font-size: 17px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: Arial, sans-serif;">
+                        Análises periódicas
+                      </span>
                     </div>
 
                     <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -910,7 +956,9 @@
                           <path d="M8 17h5"></path>
                         </svg>
                       </div>
-                      <span style="font-size: 17px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: Arial, sans-serif;">Relatórios mensais para acompanhamento</span>
+                      <span style="font-size: 17px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: Arial, sans-serif;">
+                        Relatórios mensais para acompanhamento
+                      </span>
                     </div>
 
                     <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -919,7 +967,9 @@
                           <path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                         </svg>
                       </div>
-                      <span style="font-size: 17px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: Arial, sans-serif;">Suporte no grupo do WhatsApp</span>
+                      <span style="font-size: 17px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: Arial, sans-serif;">
+                        Suporte no grupo do WhatsApp
+                      </span>
                     </div>
                   </div>
 
@@ -927,7 +977,8 @@
                     <a href="https://calendly.com/tetragrowthgestao/growthcall" target="_blank" rel="noopener noreferrer" class="btn-apple-liquid-glass inline-flex">
                       Crescer com Growth
                       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2">
-                        <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
                       </svg>
                     </a>
                   </div>
@@ -940,11 +991,16 @@
             <section id="acompanhamento" class="pt-[30px] pb-[30px] md:pt-[60px] md:pb-[60px] px-5 md:px-6">
               <div class="max-w-7xl mx-auto flex flex-col md:flex-row-reverse items-center gap-12">
                 <div class="w-full md:w-1/2">
-                  <img src="https://picsum.photos/seed/strategy/800/600" alt="Acompanhamento Estrategico" class="rounded-2xl w-full shadow-2xl border border-white/10" referrerPolicy="no-referrer">
+                  <img src="https://picsum.photos/seed/strategy/800/600" alt="Acompanhamento Estrategico" class="rounded-2xl w-full shadow-2xl border border-white/10" referrerpolicy="no-referrer" />
                 </div>
                 <div class="w-full md:w-1/2 text-left">
-                  <h2 class="!text-[30px] lg:!text-[36px] !leading-[38px] mb-6 !font-['Plus_Jakarta_Sans',_sans-serif] text-[#f6e9d9]">Acompanhamento estratégico</h2>
-                  <p class="text-base md:text-lg text-emerald-500 font-medium mb-4">Direção com foco em receita.</p>
+                  <h2 class="!text-[30px] lg:!text-[36px] !leading-[38px] mb-6 !font-['Plus_Jakarta_Sans',_sans-serif] text-[#f6e9d9]">
+                    Acompanhamento estratégico
+                  </h2>
+                  <p class="text-base md:text-lg text-emerald-500 font-medium mb-4">
+                    Direção com foco em receita.
+                  </p>
+
                   <div class="mb-10 max-w-[420px] w-full" style="padding: 8px 0; color: #fff;">
                     <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
                       <div style="width: 28px; height: 28px; min-width: 28px; border: 1px solid rgba(46, 233, 194, 0.35); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #2ee9c2;">
@@ -955,7 +1011,9 @@
                           <path d="M17 16v-4"></path>
                         </svg>
                       </div>
-                      <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">Analisamos 100% do marketing e vendas</span>
+                      <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">
+                        Analisamos 100% do marketing e vendas
+                      </span>
                     </div>
 
                     <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -964,7 +1022,9 @@
                           <path d="M3 12h5l3-8 4 16 3-8h3"></path>
                         </svg>
                       </div>
-                      <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">Antecipamos e resolvemos problemas</span>
+                      <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">
+                        Antecipamos e resolvemos problemas
+                      </span>
                     </div>
 
                     <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -976,7 +1036,9 @@
                           <path d="M8 15h5"></path>
                         </svg>
                       </div>
-                      <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">Frameworks Validados</span>
+                      <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">
+                        Frameworks Validados
+                      </span>
                     </div>
 
                     <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -987,7 +1049,9 @@
                           <path d="M5 9l10 10"></path>
                         </svg>
                       </div>
-                      <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">Processos Validados</span>
+                      <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">
+                        Processos Validados
+                      </span>
                     </div>
 
                     <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -997,7 +1061,9 @@
                           <path d="M20 20l-3.5-3.5"></path>
                         </svg>
                       </div>
-                      <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">Mentorias 1x1</span>
+                      <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">
+                        Mentorias 1x1
+                      </span>
                     </div>
 
                     <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -1006,7 +1072,9 @@
                           <path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                         </svg>
                       </div>
-                      <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">Suporte Prioritário</span>
+                      <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">
+                        Suporte Prioritário
+                      </span>
                     </div>
 
                     <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -1015,14 +1083,18 @@
                           <path d="M4 12h6M14 6h6M14 18h6M10 4v16" />
                         </svg>
                       </div>
-                      <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">Aprimoramento técnico</span>
+                      <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">
+                        Aprimoramento técnico
+                      </span>
                     </div>
                   </div>
+
                   <div class="flex justify-center md:justify-start">
                     <a href="https://calendly.com/tetragrowthgestao/growthcall" target="_blank" rel="noopener noreferrer" class="btn-apple-liquid-glass inline-flex">
                       Acessar acompanhado Tetra
                       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2">
-                        <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
                       </svg>
                     </a>
                   </div>
@@ -1035,11 +1107,16 @@
             <section id="mentoriapontual" class="pt-[30px] pb-[30px] md:pt-[60px] md:pb-[60px] px-5 md:px-6">
               <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
                 <div class="w-full md:w-1/2">
-                  <img src="https://picsum.photos/seed/operation/800/600" alt="Mentoria Pontual de Growth" class="rounded-2xl w-full shadow-2xl border border-white/10" referrerPolicy="no-referrer">
+                  <img src="https://picsum.photos/seed/operation/800/600" alt="Mentoria Pontual de Growth" class="rounded-2xl w-full shadow-2xl border border-white/10" referrerpolicy="no-referrer" />
                 </div>
                 <div class="w-full md:w-1/2 text-left">
-                  <h2 class="!text-[30px] lg:!text-[36px] !leading-[38px] mb-6 !font-['Plus_Jakarta_Sans',_sans-serif] text-[#f6e9d9]">Mentoria pontual</h2>
-                  <p class="text-base md:text-lg text-emerald-500 font-medium mb-4">Aquisição, Conversão, Expansão de receita.</p>
+                  <h2 class="!text-[30px] lg:!text-[36px] !leading-[38px] mb-6 !font-['Plus_Jakarta_Sans',_sans-serif] text-[#f6e9d9]">
+                    Mentoria pontual
+                  </h2>
+                  <p class="text-base md:text-lg text-emerald-500 font-medium mb-4">
+                    Aquisição, Conversão, Expansão de receita.
+                  </p>
+
                   <div class="mb-10 max-w-[420px] w-full" style="padding: 8px 0; color: #fff;">
                     <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
                       <div style="width: 28px; height: 28px; min-width: 28px; border: 1px solid rgba(46, 233, 194, 0.35); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #2ee9c2;">
@@ -1050,7 +1127,9 @@
                           <path d="M17 16v-4"></path>
                         </svg>
                       </div>
-                      <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">Diagnosticamos o problema mais latente</span>
+                      <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">
+                        Diagnosticamos o problema mais latente
+                      </span>
                     </div>
 
                     <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -1059,7 +1138,9 @@
                           <path d="M3 12h5l3-8 4 16 3-8h3"></path>
                         </svg>
                       </div>
-                      <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">Criação de plano de resolução de gargalo</span>
+                      <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">
+                        Criação de plano de resolução de gargalo
+                      </span>
                     </div>
 
                     <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -1071,7 +1152,9 @@
                           <path d="M8 15h5"></path>
                         </svg>
                       </div>
-                      <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">Visão estratégica de toda a estrutura de marketing</span>
+                      <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">
+                        Visão estratégica de toda a estrutura de marketing
+                      </span>
                     </div>
 
                     <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -1082,7 +1165,9 @@
                           <path d="M5 9l10 10"></path>
                         </svg>
                       </div>
-                      <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">Resolução de problema latente</span>
+                      <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">
+                        Resolução de problema latente
+                      </span>
                     </div>
 
                     <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -1092,14 +1177,18 @@
                           <path d="M20 20l-3.5-3.5"></path>
                         </svg>
                       </div>
-                      <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">Direcionamento detalhado</span>
+                      <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">
+                        Direcionamento detalhado
+                      </span>
                     </div>
                   </div>
+
                   <div class="flex justify-center md:justify-start">
                     <a href="https://calendly.com/tetragrowthgestao/growthcall" target="_blank" rel="noopener noreferrer" class="btn-apple-liquid-glass inline-flex">
                       quero ser mentoreado
                       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2">
-                        <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
                       </svg>
                     </a>
                   </div>
@@ -1112,11 +1201,16 @@
             <section id="diagnostico" class="pt-[30px] pb-[30px] md:pt-[60px] md:pb-[60px] px-5 md:px-6">
               <div class="max-w-7xl mx-auto flex flex-col md:flex-row-reverse items-center gap-12">
                 <div class="w-full md:w-1/2">
-                  <img src="https://picsum.photos/seed/mentoring/800/600" alt="Diagnostico de Growth" class="rounded-2xl w-full shadow-2xl border border-white/10" referrerPolicy="no-referrer">
+                  <img src="https://picsum.photos/seed/mentoring/800/600" alt="Diagnostico de Growth" class="rounded-2xl w-full shadow-2xl border border-white/10" referrerpolicy="no-referrer" />
                 </div>
                 <div class="w-full md:w-1/2 text-left">
-                  <h2 class="!text-[30px] lg:!text-[36px] !leading-[38px] mb-6 !font-['Plus_Jakarta_Sans',_sans-serif] text-[#f6e9d9]">Diagnóstico de Growth</h2>
-                  <p class="text-base md:text-lg text-emerald-500 font-medium mb-4">Capacitação estratégica.</p>
+                  <h2 class="!text-[30px] lg:!text-[36px] !leading-[38px] mb-6 !font-['Plus_Jakarta_Sans',_sans-serif] text-[#f6e9d9]">
+                    Diagnóstico de Growth
+                  </h2>
+                  <p class="text-base md:text-lg text-emerald-500 font-medium mb-4">
+                    Capacitação estratégica.
+                  </p>
+
                   <div class="mb-10 max-w-[420px] w-full" style="padding: 8px 0; color: #fff;">
                     <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
                       <div style="width: 28px; height: 28px; min-width: 28px; border: 1px solid rgba(46, 233, 194, 0.35); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #2ee9c2;">
@@ -1124,7 +1218,9 @@
                           <path d="M4 12h6M14 6h6M14 18h6M10 4v16" />
                         </svg>
                       </div>
-                      <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">entendemos seu cliente</span>
+                      <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">
+                        entendemos seu cliente
+                      </span>
                     </div>
 
                     <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -1134,7 +1230,9 @@
                           <path d="M20 20l-3.5-3.5"></path>
                         </svg>
                       </div>
-                      <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">analisamos sua operação</span>
+                      <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">
+                        analisamos sua operação
+                      </span>
                     </div>
 
                     <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -1143,7 +1241,9 @@
                           <path d="M3 12h5l3-8 4 16 3-8h3"></path>
                         </svg>
                       </div>
-                      <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">encontramos o gargalo</span>
+                      <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">
+                        encontramos o gargalo
+                      </span>
                     </div>
 
                     <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -1154,7 +1254,9 @@
                           <path d="M5 9l10 10"></path>
                         </svg>
                       </div>
-                      <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">propomos uma resolução</span>
+                      <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">
+                        propomos uma resolução
+                      </span>
                     </div>
 
                     <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -1166,14 +1268,18 @@
                           <path d="M8 15h5"></path>
                         </svg>
                       </div>
-                      <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">100% gratuito</span>
+                      <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">
+                        100% gratuito
+                      </span>
                     </div>
                   </div>
+
                   <div class="flex justify-center md:justify-start">
                     <a href="https://calendly.com/tetragrowthgestao/growthcall" target="_blank" rel="noopener noreferrer" class="btn-apple-liquid-glass inline-flex">
                       acessar diagnóstico
                       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2">
-                        <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
                       </svg>
                     </a>
                   </div>
@@ -1186,8 +1292,12 @@
             <section class="pt-[30px] pb-[30px] md:pt-[60px] md:pb-[60px] px-5 md:px-6">
               <div class="max-w-7xl mx-auto text-left md:text-center">
                 <div class="mb-12 md:mb-24">
-                  <span class="text-emerald-500 text-[10px] uppercase tracking-[0.3em] font-bold">Resultados Reais</span>
-                  <h2 class="!text-[30px] lg:!text-[36px] !leading-[38px] mt-4 text-[#f6e9d9] lg:max-w-[800px] mx-auto text-left md:text-center !font-['Plus_Jakarta_Sans',_sans-serif]">Crescimento medido por resultado, não por vaidade</h2>
+                  <span class="text-emerald-500 text-[10px] uppercase tracking-[0.3em] font-bold">
+                    Resultados Reais
+                  </span>
+                  <h2 class="!text-[30px] lg:!text-[36px] !leading-[38px] mt-4 text-[#f6e9d9] lg:max-w-[800px] mx-auto text-left md:text-center !font-['Plus_Jakarta_Sans',_sans-serif]">
+                    Crescimento medido por resultado, não por vaidade
+                  </h2>
                 </div>
 
                 <div class="grid md:grid-cols-3 gap-8">
@@ -1200,7 +1310,7 @@
                     </div>
 
                     <script>
-                      (function() {
+                      (function () {
                         const glass = document.getElementById("glass-card-1");
                         if (!glass) return;
 
@@ -1208,10 +1318,8 @@
                           const rect = glass.getBoundingClientRect();
                           const x = e.clientX - rect.left;
                           const y = e.clientY - rect.top;
-
                           const px = x / rect.width;
                           const py = y / rect.height;
-
                           const ry = (px - 0.5) * 12;
                           const rx = (0.5 - py) * 12;
 
@@ -1240,7 +1348,7 @@
                     </div>
 
                     <script>
-                      (function() {
+                      (function () {
                         const glass = document.getElementById("glass-card-2");
                         if (!glass) return;
 
@@ -1248,10 +1356,8 @@
                           const rect = glass.getBoundingClientRect();
                           const x = e.clientX - rect.left;
                           const y = e.clientY - rect.top;
-
                           const px = x / rect.width;
                           const py = y / rect.height;
-
                           const ry = (px - 0.5) * 12;
                           const rx = (0.5 - py) * 12;
 
@@ -1280,7 +1386,7 @@
                     </div>
 
                     <script>
-                      (function() {
+                      (function () {
                         const glass = document.getElementById("glass-card-3");
                         if (!glass) return;
 
@@ -1288,10 +1394,8 @@
                           const rect = glass.getBoundingClientRect();
                           const x = e.clientX - rect.left;
                           const y = e.clientY - rect.top;
-
                           const px = x / rect.width;
                           const py = y / rect.height;
-
                           const ry = (px - 0.5) * 12;
                           const rx = (0.5 - py) * 12;
 
@@ -1321,7 +1425,8 @@
                   >
                     desbloqueiar crescimento
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
                     </svg>
                   </a>
                 </div>
@@ -1333,15 +1438,22 @@
             <section id="cases" class="pt-[30px] pb-[30px] md:pt-[60px] md:pb-[60px] px-5 md:px-6">
               <div class="max-w-7xl mx-auto">
                 <div class="text-left md:text-center mb-24">
-                  <h2 class="!text-[30px] lg:!text-[36px] !leading-[38px] font-medium text-[#f6e9d9] normal-case lg:max-w-[800px] mx-auto !font-['Plus_Jakarta_Sans',_sans-serif]">Cases reais de empresas que escalaram seu lucro com as nossas estratégias</h2>
+                  <h2 class="!text-[30px] lg:!text-[36px] !leading-[38px] font-medium text-[#f6e9d9] normal-case lg:max-w-[800px] mx-auto !font-['Plus_Jakarta_Sans',_sans-serif]">
+                    Cases reais de empresas que escalaram seu lucro com as nossas estratégias
+                  </h2>
                 </div>
 
                 <div id="cases-carousel" class="swiper">
                   <div class="swiper-wrapper">
                     <div class="swiper-slide">
                       <div class="glass-card p-8 rounded-2xl relative text-left md:text-center flex flex-col items-start md:items-center justify-center min-h-[350px]">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mb-6 opacity-50"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/></svg>
-                        <p class="text-[#F6E9D9] mb-8 leading-relaxed italic">"Com receio de lançar meu produto, eles vieram e não só me ajudaram a vender, me ajudaram a lançar e gerar demanda para vender todas as unidades e ter encomendas e reservas."</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mb-6 opacity-50">
+                          <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path>
+                          <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path>
+                        </svg>
+                        <p class="text-[#F6E9D9] mb-8 leading-relaxed italic">
+                          "Com receio de lançar meu produto, eles vieram e não só me ajudaram a vender, me ajudaram a lançar e gerar demanda para vender todas as unidades e ter encomendas e reservas."
+                        </p>
                         <div class="inline-block bg-emerald-500/10 text-emerald-500 text-xs font-bold px-3 py-1 rounded-full mb-6">
                           200% de vendas realizadas
                         </div>
@@ -1354,8 +1466,13 @@
 
                     <div class="swiper-slide">
                       <div class="glass-card p-8 rounded-2xl relative text-left md:text-center flex flex-col items-start md:items-center justify-center min-h-[350px]">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mb-6 opacity-50"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/></svg>
-                        <p class="text-[#F6E9D9] mb-8 leading-relaxed italic">"O trabalho de marketing estratégico desenvolvido foi crucial para reposicionar nossa empresa no mercado"</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mb-6 opacity-50">
+                          <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path>
+                          <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path>
+                        </svg>
+                        <p class="text-[#F6E9D9] mb-8 leading-relaxed italic">
+                          "O trabalho de marketing estratégico desenvolvido foi crucial para reposicionar nossa empresa no mercado"
+                        </p>
                         <div class="inline-block bg-emerald-500/10 text-emerald-500 text-xs font-bold px-3 py-1 rounded-full mb-6">
                           Aumento de +30% de Faturamento
                         </div>
@@ -1368,8 +1485,13 @@
 
                     <div class="swiper-slide">
                       <div class="glass-card p-8 rounded-2xl relative text-left md:text-center flex flex-col items-start md:items-center justify-center min-h-[350px]">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mb-6 opacity-50"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/></svg>
-                        <p class="text-[#F6E9D9] mb-8 leading-relaxed italic">"Mesmo na competição do varejo e com a dificuldade de vendas, vocês foram responsáveis por zerar todo o estoque de produtos gastando menos do que foi proposto para a campanha"</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mb-6 opacity-50">
+                          <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path>
+                          <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path>
+                        </svg>
+                        <p class="text-[#F6E9D9] mb-8 leading-relaxed italic">
+                          "Mesmo na competição do varejo e com a dificuldade de vendas, vocês foram responsáveis por zerar todo o estoque de produtos gastando menos do que foi proposto para a campanha"
+                        </p>
                         <div class="inline-block bg-emerald-500/10 text-emerald-500 text-xs font-bold px-3 py-1 rounded-full mb-6">
                           ROAS de 149,9x
                         </div>
@@ -1382,8 +1504,13 @@
 
                     <div class="swiper-slide">
                       <div class="glass-card p-8 rounded-2xl relative text-left md:text-center flex flex-col items-start md:items-center justify-center min-h-[350px]">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mb-6 opacity-50"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/></svg>
-                        <p class="text-[#F6E9D9] mb-8 leading-relaxed italic">"Vocês foram além de apenas mentores, me mostraram exatamente como fazer, pra onde seguir e me entregaram muito além do que eu contratei e do que eu pude imaginar. Muito mais que um ambiente de ensino, vocês me deram um lugar para conversar e estar."</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mb-6 opacity-50">
+                          <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path>
+                          <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path>
+                        </svg>
+                        <p class="text-[#F6E9D9] mb-8 leading-relaxed italic">
+                          "Vocês foram além de apenas mentores, me mostraram exatamente como fazer, pra onde seguir e me entregaram muito além do que eu contratei e do que eu pude imaginar. Muito mais que um ambiente de ensino, vocês me deram um lugar para conversar e estar."
+                        </p>
                         <div class="inline-block bg-emerald-500/10 text-emerald-500 text-xs font-bold px-3 py-1 rounded-full mb-6">
                           Mentoria Individual
                         </div>
@@ -1405,7 +1532,8 @@
                   >
                     QUERO 10x DE ROI AGORA
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
                     </svg>
                   </a>
                 </div>
@@ -1417,42 +1545,48 @@
             <section class="pt-[30px] pb-[30px] md:pt-[60px] md:pb-[60px] px-5 md:px-6">
               <div class="max-w-7xl mx-auto text-center">
                 <div class="mb-24">
-                  <span class="text-emerald-500 text-[10px] uppercase tracking-[0.3em] font-bold">Diferencial Competitivo</span>
-                  <h2 class="!text-[30px] lg:!text-[36px] !leading-[38px] mt-[20px] lg:max-w-[800px] mx-auto text-left md:text-center text-[#f6e9d9] !font-['Plus_Jakarta_Sans',_sans-serif]">GROWTH DE VERDADE ACONTECE QUANDO TODA A OPERAÇÃO EVOLUI JUNTO</h2>
-                  <p class="mt-6 text-base md:text-lg lg:max-w-[650px] mx-auto text-left md:text-center text-[#9ba89f]">Atuamos além da mídia para destravar conversão, processo, oferta e experiência, criando uma base mais eficiente para crescer com consistência.</p>
+                  <span class="text-emerald-500 text-[10px] uppercase tracking-[0.3em] font-bold">
+                    Diferencial Competitivo
+                  </span>
+                  <h2 class="!text-[30px] lg:!text-[36px] !leading-[38px] mt-[20px] lg:max-w-[800px] mx-auto text-left md:text-center text-[#f6e9d9] !font-['Plus_Jakarta_Sans',_sans-serif]">
+                    GROWTH DE VERDADE ACONTECE QUANDO TODA A OPERAÇÃO EVOLUI JUNTO
+                  </h2>
+                  <p class="mt-6 text-base md:text-lg lg:max-w-[650px] mx-auto text-left md:text-center text-[#9ba89f]">
+                    Atuamos além da mídia para destravar conversão, processo, oferta e experiência, criando uma base mais eficiente para crescer com consistência.
+                  </p>
                 </div>
 
                 <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
                   <div class="card-gradient p-4 md:p-6 rounded-xl flex flex-col items-center justify-center gap-4 text-center shadow-lg hover:scale-105 transition-transform duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F6E9D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F6E9D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2" /><path d="M12 18h.01" /></svg>
                     <span class="text-[#F6E9D9] text-xs font-bold uppercase tracking-wider">Comercial</span>
                   </div>
                   <div class="card-gradient p-4 md:p-6 rounded-xl flex flex-col items-center justify-center gap-4 text-center shadow-lg hover:scale-105 transition-transform duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F6E9D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F6E9D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="20" y2="10" /><line x1="18" x2="18" y1="20" y2="4" /><line x1="6" x2="6" y1="20" y2="16" /></svg>
                     <span class="text-[#F6E9D9] text-xs font-bold uppercase tracking-wider">Vendas</span>
                   </div>
                   <div class="card-gradient p-4 md:p-6 rounded-xl flex flex-col items-center justify-center gap-4 text-center shadow-lg hover:scale-105 transition-transform duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F6E9D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F6E9D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3" /><path d="M3 5V19A9 3 0 0 0 21 19V5" /><path d="M3 12A9 3 0 0 0 21 12" /></svg>
                     <span class="text-[#F6E9D9] text-xs font-bold uppercase tracking-wider">Financeiro</span>
                   </div>
                   <div class="card-gradient p-4 md:p-6 rounded-xl flex flex-col items-center justify-center gap-4 text-center shadow-lg hover:scale-105 transition-transform duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F6E9D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F6E9D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" /><path d="M3 9h18" /><path d="M9 21V9" /></svg>
                     <span class="text-[#F6E9D9] text-xs font-bold uppercase tracking-wider">Gestão</span>
                   </div>
                   <div class="card-gradient p-4 md:p-6 rounded-xl flex flex-col items-center justify-center gap-4 text-center shadow-lg hover:scale-105 transition-transform duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F6E9D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="4" height="4" x="4" y="4" rx="1"/><rect width="4" height="4" x="16" y="4" rx="1"/><rect width="4" height="4" x="16" y="16" rx="1"/><rect width="4" height="4" x="4" y="16" rx="1"/><path d="M9 6h7"/><path d="M17 9v7"/><path d="M15 18H8"/><path d="M6 15V9"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F6E9D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="4" height="4" x="4" y="4" rx="1" /><rect width="4" height="4" x="16" y="4" rx="1" /><rect width="4" height="4" x="16" y="16" rx="1" /><rect width="4" height="4" x="4" y="16" rx="1" /><path d="M9 6h7" /><path d="M17 9v7" /><path d="M15 18H8" /><path d="M6 15V9" /></svg>
                     <span class="text-[#F6E9D9] text-xs font-bold uppercase tracking-wider">Processos</span>
                   </div>
                   <div class="card-gradient p-4 md:p-6 rounded-xl flex flex-col items-center justify-center gap-4 text-center shadow-lg hover:scale-105 transition-transform duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F6E9D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F6E9D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" /></svg>
                     <span class="text-[#F6E9D9] text-xs font-bold uppercase tracking-wider">Automação</span>
                   </div>
                   <div class="card-gradient p-4 md:p-6 rounded-xl flex flex-col items-center justify-center gap-4 text-center shadow-lg hover:scale-105 transition-transform duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F6E9D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" x2="22" y1="12" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F6E9D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><line x1="2" x2="22" y1="12" y2="12" /><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /></svg>
                     <span class="text-[#F6E9D9] text-xs font-bold uppercase tracking-wider">Sistemas</span>
                   </div>
                   <div class="card-gradient p-4 md:p-6 rounded-xl flex flex-col items-center justify-center gap-4 text-center shadow-lg hover:scale-105 transition-transform duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F6E9D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.18 6.18a2 2 0 0 0 0 3.64l8.99 4a2 2 0 0 0 1.66 0l8.99-4a2 2 0 0 0 0-3.64Z"/><path d="m2.18 14.18 8.99 4a2 2 0 0 0 1.66 0l8.99-4"/><path d="m2.18 10.18 8.99 4a2 2 0 0 0 1.66 0l8.99-4"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F6E9D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.18 6.18a2 2 0 0 0 0 3.64l8.99 4a2 2 0 0 0 1.66 0l8.99-4a2 2 0 0 0 0-3.64Z" /><path d="m2.18 14.18 8.99 4a2 2 0 0 0 1.66 0l8.99-4" /><path d="m2.18 10.18 8.99 4a2 2 0 0 0 1.66 0l8.99-4" /></svg>
                     <span class="text-[#F6E9D9] text-xs font-bold uppercase tracking-wider">Produto</span>
                   </div>
                 </div>
@@ -1461,10 +1595,12 @@
                   <div class="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-transparent via-emerald-500/50 to-transparent"></div>
                   <div class="flex justify-center mb-6">
                     <div class="w-12 h-12 rounded-full bg-emerald-500/10 flex items-center justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" /></svg>
                     </div>
                   </div>
-                  <span class="text-emerald-500 text-[10px] uppercase tracking-[0.3em] font-bold mb-4 block">Escalabilidade & Crescimento</span>
+                  <span class="text-emerald-500 text-[10px] uppercase tracking-[0.3em] font-bold mb-4 block">
+                    Escalabilidade & Crescimento
+                  </span>
                   <p class="text-[20px] md:text-3xl text-[#f6e9d9] font-medium max-w-4xl mx-auto leading-tight font-display">
                     "Estruturamos um sistema de Growth Marketing que integra aquisição, conversão, retenção e operação para transformar ações isoladas em crescimento contínuo."
                   </p>
@@ -1476,8 +1612,12 @@
 
             <section id="dashboards" class="pt-[30px] pb-[30px] md:pt-[60px] md:pb-[60px] px-5 md:px-6">
               <div class="max-w-7xl mx-auto text-left md:text-center">
-                <h2 class="!text-[30px] lg:!text-[36px] !leading-[38px] mb-6 lg:max-w-[800px] mx-auto text-left md:text-center !font-['Plus_Jakarta_Sans',_sans-serif]">Controle total sobre os resultados</h2>
-                <p class="mb-24 text-base md:text-lg lg:max-w-[650px] mx-auto text-left md:text-center">Com uma estratégia voltada 100% para maximização de resultados, geração de receita e crescimento previsível da lucratividade do seu negócio</p>
+                <h2 class="!text-[30px] lg:!text-[36px] !leading-[38px] mb-6 lg:max-w-[800px] mx-auto text-left md:text-center !font-['Plus_Jakarta_Sans',_sans-serif]">
+                  Controle total sobre os resultados
+                </h2>
+                <p class="mb-24 text-base md:text-lg lg:max-w-[650px] mx-auto text-left md:text-center">
+                  Com uma estratégia voltada 100% para maximização de resultados, geração de receita e crescimento previsível da lucratividade do seu negócio
+                </p>
 
                 <div class="flex flex-wrap justify-center md:justify-center gap-4">
                   <div class="glass-card px-8 py-4 rounded-xl text-sm text-white font-medium" style="width: 308.594px;">
@@ -1501,11 +1641,11 @@
                 <div class="about-grid-custom">
                   <div class="about-images-custom">
                     <div class="avatar-wrap-custom">
-                      <img src="./assets/img/foto_melquisedeque.png" alt="foto melquisedeque" referrerPolicy="no-referrer">
+                      <img src="./assets/img/foto_melquisedeque.png" alt="foto melquisedeque" referrerpolicy="no-referrer" />
                     </div>
 
                     <div class="avatar-wrap-custom">
-                      <img src="./assets/img/foto_joao_paulo.jpg" alt="foto joão paulo" referrerPolicy="no-referrer">
+                      <img src="./assets/img/foto_joao_paulo.jpg" alt="foto joão paulo" referrerpolicy="no-referrer" />
                     </div>
                   </div>
 
@@ -1514,7 +1654,7 @@
 
                     <p class="about-text-custom">
                       A TETRA nasce da junção de duas ambições que unidas buscam levar para negócios o marketing real, focado em gerar resultados mensuráveis e lucros consistentes para empresas e especialistas online e off-line.
-                      <br><br>
+                      <br /><br />
                       O marketing muda realidade de negócios e nós viemos para possibilitar que todos tenham acesso as estratégias e soluções que levaram negócios a faturamentos bilionários moduladas a sua realidade. Democratizar o acesso a grandes resultados não apenas uma missão, está escrita no DNA de crescimento Tetra.
                     </p>
 
@@ -1533,9 +1673,12 @@
             <section class="py-[30px] md:py-[100px] px-5 md:px-6 text-left md:text-center">
               <div class="max-w-4xl mx-auto">
                 <h2 class="!text-[30px] lg:!text-[36px] !leading-[38px] text-[#f6e9d9] mb-8 font-medium text-left md:text-center !font-['Plus_Jakarta_Sans',_sans-serif]">
-                  Quer transformar marketing no seu motor de <span class="text-emerald-500">CRESCIMENTO PREVISÍVEL?</span>
+                  Quer transformar marketing no seu motor de
+                  <span class="text-emerald-500">CRESCIMENTO PREVISÍVEL?</span>
                 </h2>
-                <p class="text-base md:text-lg mb-12 text-left md:text-center">Agende um horário com nosso time de especialistas.</p>
+                <p class="text-base md:text-lg mb-12 text-left md:text-center">
+                  Agende um horário com nosso time de especialistas.
+                </p>
                 <div class="flex justify-center flex-wrap gap-4 mt-10">
                   <a
                     href="https://calendly.com/tetragrowthgestao/growthcall"
@@ -1545,7 +1688,8 @@
                   >
                     MARCAR CALL DE APRESENTAÇÃO
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
                     </svg>
                   </a>
                 </div>
@@ -1555,7 +1699,9 @@
 
           <footer class="py-12 px-5 md:px-6 border-t border-white/5">
             <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-              <div class="text-white font-extrabold text-xl tracking-tighter logo-font uppercase">Tetra <span class="text-emerald-500">Growth</span></div>
+              <div class="text-white font-extrabold text-xl tracking-tighter logo-font uppercase">
+                Tetra <span class="text-emerald-500">Growth</span>
+              </div>
               <div class="text-[10px] uppercase tracking-widest text-left md:text-center">
                 © 2026 Tetra Growth. Todos os direitos reservados.
               </div>
@@ -1567,139 +1713,114 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-      function setupCasesMarquee() {
-        const carousel = document.getElementById('cases-carousel');
-        if (!carousel) return;
-
-        const track = carousel.querySelector('.swiper-wrapper');
-        if (!track) return;
-
-        if (!track.dataset.originalHtml) {
-          track.dataset.originalHtml = track.innerHTML;
-        } else {
-          track.innerHTML = track.dataset.originalHtml;
-        }
-
-        const originalItems = Array.from(track.children);
-        if (!originalItems.length) return;
-
-        const copiesNeeded = window.innerWidth < 769 ? 6 : 4;
-        const fragment = document.createDocumentFragment();
-
-        for (let copy = 0; copy < copiesNeeded; copy += 1) {
-          originalItems.forEach((item) => {
-            const clone = item.cloneNode(true);
-            clone.setAttribute('aria-hidden', 'true');
-            fragment.appendChild(clone);
-          });
-        }
-
-        track.appendChild(fragment);
-
-        requestAnimationFrame(() => {
-          const gap = parseFloat(getComputedStyle(track).gap || '0');
-
-          const setWidth =
-            originalItems.reduce((total, item) => total + item.getBoundingClientRect().width, 0) +
-            gap * originalItems.length;
-
-          carousel.style.setProperty('--cases-loop-width', `${setWidth}px`);
-
-          const pixelsPerSecond = window.innerWidth < 769 ? 70 : 85;
-          const duration = Math.max(setWidth / pixelsPerSecond, 18);
-
-          track.style.animationDuration = `${duration}s`;
-        });
-      }
-
-      let casesMarqueeResizeTimer;
-
-      document.addEventListener('DOMContentLoaded', () => {
-        new Swiper('#passante', {
-          loop: true,
-          speed: 4300,
-          slidesPerView: 'auto',
-          spaceBetween: 100,
-          allowTouchMove: false,
-          simulateTouch: false,
-          grabCursor: false,
-          watchSlidesProgress: true,
-          loopAdditionalSlides: 10,
+      document.addEventListener("DOMContentLoaded", () => {
+        new Swiper("#passante", {
+          direction: "horizontal",
+          speed: 2000,
           autoplay: {
             delay: 0,
             disableOnInteraction: false,
-            pauseOnMouseEnter: false,
-            waitForTransition: false,
           },
-          freeMode: {
-            enabled: true,
-            momentum: false,
+          loop: true,
+          allowTouchMove: false,
+          breakpoints: {
+            320: {
+              slidesPerView: 2,
+              speed: 1000,
+              spaceBetween: 20,
+            },
+            480: {
+              slidesPerView: 2,
+              spaceBetween: 30,
+            },
+            640: {
+              slidesPerView: 3,
+              spaceBetween: 40,
+            },
+            1080: {
+              slidesPerView: 7,
+              spaceBetween: 40,
+            },
           },
-          noSwiping: true,
-          noSwipingClass: 'swiper-slide',
-          preventInteractionOnTransition: true,
-          watchOverflow: false,
         });
 
-        setupCasesMarquee();
+        new Swiper("#cases-carousel", {
+          loop: false,
+          slidesPerView: 1.15,
+          spaceBetween: 16,
+          allowTouchMove: true,
+          grabCursor: true,
+          observer: true,
+          observeParents: true,
+          breakpoints: {
+            0: {
+              slidesPerView: 1.1,
+              spaceBetween: 16,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 24,
+            },
+            1080: {
+              slidesPerView: 3,
+              spaceBetween: 32,
+            },
+          },
+        });
       });
 
-      window.addEventListener('resize', () => {
-        clearTimeout(casesMarqueeResizeTimer);
-        casesMarqueeResizeTimer = setTimeout(setupCasesMarquee, 150);
-      });
-
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
           e.preventDefault();
-          const target = document.querySelector(this.getAttribute('href'));
+          const target = document.querySelector(this.getAttribute("href"));
+
           if (target) {
             window.scrollTo({
               top: target.offsetTop - 80,
-              behavior: 'smooth'
+              behavior: "smooth",
             });
 
-            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-            this.classList.add('active');
+            document.querySelectorAll(".nav-link").forEach((link) => link.classList.remove("active"));
+            this.classList.add("active");
           }
         });
       });
 
-      window.addEventListener('scroll', () => {
-        const sections = ['inicio', 'servicos', 'cases', 'sobre'];
+      window.addEventListener("scroll", () => {
+        const sections = ["inicio", "servicos", "cases", "sobre"];
         const scrollPos = window.scrollY + 100;
 
-        sections.forEach(id => {
+        sections.forEach((id) => {
           const el = document.getElementById(id);
           if (el && scrollPos >= el.offsetTop && scrollPos < el.offsetTop + el.offsetHeight) {
-            document.querySelectorAll('.nav-link').forEach(link => {
-              link.classList.remove('active');
-              if (link.getAttribute('href') === '#' + id) {
-                link.classList.add('active');
+            document.querySelectorAll(".nav-link").forEach((link) => {
+              link.classList.remove("active");
+              if (link.getAttribute("href") === "#" + id) {
+                link.classList.add("active");
               }
             });
           }
         });
       });
 
-      document.addEventListener('DOMContentLoaded', () => {
-        const images = document.querySelectorAll('img');
-        if ('loading' in HTMLImageElement.prototype) {
-          images.forEach(img => img.setAttribute('loading', 'lazy'));
+      document.addEventListener("DOMContentLoaded", () => {
+        const images = document.querySelectorAll("img");
+        if ("loading" in HTMLImageElement.prototype) {
+          images.forEach((img) => img.setAttribute("loading", "lazy"));
         }
 
-        console.log('Tetra Growth: Site carregado e otimizado.');
+        console.log("Tetra Growth: Site carregado e otimizado.");
       });
 
-      const allGlassBtns = document.querySelectorAll('.btn-apple-glass, .btn-apple-liquid-glass');
-      allGlassBtns.forEach(btn => {
-        btn.addEventListener('mousemove', (e) => {
+      const allGlassBtns = document.querySelectorAll(".btn-apple-glass, .btn-apple-liquid-glass");
+      allGlassBtns.forEach((btn) => {
+        btn.addEventListener("mousemove", (e) => {
           const rect = btn.getBoundingClientRect();
           const x = e.clientX - rect.left;
           const y = e.clientY - rect.top;
 
-          btn.style.setProperty('--x', `${x}px`);
-          btn.style.setProperty('--y', `${y}px`);
+          btn.style.setProperty("--x", `${x}px`);
+          btn.style.setProperty("--y", `${y}px`);
         });
       });
     </script>
