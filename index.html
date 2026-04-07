@@ -232,6 +232,21 @@
         text-align: center !important;
       }
 
+      @media (max-width: 768px) {
+        #glass-card-1, #glass-card-2, #glass-card-3 {
+          min-height: 175px !important;
+          padding: 20px !important;
+          border-radius: 24px !important;
+        }
+        #glass-card-1 h2, #glass-card-2 h2, #glass-card-3 h2 {
+          font-size: 1.5rem !important;
+        }
+        #glass-card-1 p, #glass-card-2 p, #glass-card-3 p {
+          font-size: 0.75rem !important;
+          max-width: 24ch !important;
+        }
+      }
+
       .glass-card {
         background-image: linear-gradient(135deg, rgb(18, 38, 30) 0%, rgb(15, 26, 22) 70%, rgb(41, 39, 30) 100%);
         border: 1px solid var(--color-glass-border);
@@ -717,6 +732,233 @@
           line-height: 1.7;
         }
       }
+
+      /* FAQ Section Styles */
+      .faq-accordion {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        width: 100%;
+      }
+
+      .faq-content {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        text-decoration: none;
+        display: block;
+      }
+
+      .faq-content:hover {
+        border-color: rgba(16, 185, 129, 0.3);
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .faq-content__hero {
+        padding: 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .faq-content__hero__title {
+        font-size: 12px !important;
+        font-weight: 600 !important;
+        color: #f6e9d9 !important;
+        margin: 0 !important;
+        text-transform: none !important;
+        font-family: var(--font-sans) !important;
+        text-align: left !important;
+      }
+
+      .faq-content__hero__icon {
+        width: 16px;
+        height: 16px;
+        transition: transform 0.3s ease;
+        filter: invert(1);
+        display: inline-block !important;
+        margin: 0 !important;
+      }
+
+      .faq-content.active .faq-content__hero__icon {
+        transform: rotate(0deg) !important;
+      }
+
+      .faq-content:not(.active) .faq-content__hero__icon {
+        transform: rotate(180deg) !important;
+      }
+
+      .faq-content__description {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+        padding: 0 24px;
+      }
+
+      .faq-content.active .faq-content__description {
+        max-height: 500px;
+        padding-bottom: 24px;
+      }
+
+      .faq-content__description__text {
+        font-size: 12px !important;
+        line-height: 1.6 !important;
+        color: rgba(255, 255, 255, 0.7) !important;
+        margin: 0 !important;
+        text-align: left !important;
+      }
+
+      @media (max-width: 768px) {
+        .faq-content__hero__title {
+          font-size: 12px !important;
+        }
+      }
+
+      /* Comparison Component Styles */
+      .comparison-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+        --comp-c1: #406D61;
+        --comp-c2: #224B40;
+        --comp-c3: #133129;
+        --comp-c4: #081F1C;
+        --comp-c5: #021010;
+        --comp-light-1: rgba(64, 109, 97, 0.10);
+        --comp-light-2: rgba(34, 75, 64, 0.12);
+        --comp-light-3: rgba(19, 49, 41, 0.14);
+        --comp-light-4: rgba(8, 31, 28, 0.16);
+      }
+
+      .comparison {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 100px 1fr;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .comparison .side {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .comparison .comparison-title {
+        text-align: center;
+        font-size: clamp(1.2rem, 2vw, 1.8rem);
+        line-height: 1.1;
+        font-weight: 700;
+        letter-spacing: -0.04em;
+        color: #f6e9d9;
+        text-transform: none;
+      }
+
+      .comparison .funnel {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .comparison .segment {
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: clamp(0.8rem, 1.2vw, 1rem);
+        font-weight: 600;
+        clip-path: polygon(8% 0%, 92% 0%, 84% 100%, 16% 100%);
+        letter-spacing: -0.02em;
+        width: 100%;
+      }
+
+      .comparison .s1 { max-width: 280px; }
+      .comparison .s2 { max-width: 240px; }
+      .comparison .s3 { max-width: 210px; }
+      .comparison .s4 { max-width: 185px; }
+      .comparison .s5 { max-width: 165px; }
+
+      /* Funil esquerdo */
+      .comparison .traditional .s1 {
+        background: linear-gradient(135deg, var(--comp-c1), var(--comp-c2));
+        color: #ffffff;
+      }
+      .comparison .traditional .s2 { background: var(--comp-light-1); color: #f6e9d9; }
+      .comparison .traditional .s3 { background: var(--comp-light-2); color: #f6e9d9; }
+      .comparison .traditional .s4 { background: var(--comp-light-3); color: #f6e9d9; }
+      .comparison .traditional .s5 { background: var(--comp-light-4); color: #f6e9d9; }
+
+      /* Funil direito */
+      .comparison .growth .s1 { background: var(--comp-c1); color: #fff; }
+      .comparison .growth .s2 { background: var(--comp-c2); color: #fff; }
+      .comparison .growth .s3 { background: var(--comp-c3); color: #fff; }
+      .comparison .growth .s4 { background: var(--comp-c4); color: #fff; }
+      .comparison .growth .s5 { background: var(--comp-c5); color: #fff; }
+
+      .comparison .growth .segment {
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      }
+
+      /* Divisor central */
+      .comparison .divider {
+        height: 300px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .comparison .divider::before,
+      .comparison .divider::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 1px;
+        background: rgba(255,255,255,0.2);
+      }
+
+      .comparison .divider::before { top: 0; height: 100px; }
+      .comparison .divider::after { bottom: 0; height: 100px; }
+
+      .comparison .vs-badge {
+        width: 80px;
+        height: 80px;
+        background: #10b981;
+        clip-path: polygon(50% 0%, 63% 37%, 100% 50%, 63% 63%, 50% 100%, 37% 63%, 0% 50%, 37% 37%);
+        display: grid;
+        place-items: center;
+        color: white;
+        font-weight: 800;
+        font-size: 1.2rem;
+      }
+
+      @media (max-width: 900px) {
+        .comparison {
+          grid-template-columns: 1fr;
+          gap: 15px;
+        }
+        .comparison .side { gap: 10px; }
+        .comparison .comparison-title { font-size: 0.9rem; }
+        .comparison .s1 { max-width: 140px; }
+        .comparison .s2 { max-width: 120px; }
+        .comparison .s3 { max-width: 105px; }
+        .comparison .s4 { max-width: 92px; }
+        .comparison .s5 { max-width: 82px; }
+        .comparison .segment { height: 24px; font-size: 0.6rem; }
+        .comparison .divider { height: 60px; }
+        .comparison .divider::before, .comparison .divider::after { display: none; }
+        .comparison .vs-badge { width: 40px; height: 40px; font-size: 0.8rem; }
+      }
     </style>
   </head>
   <body>
@@ -810,7 +1052,7 @@
                   <img src="./assets/img/Logo_teamdeb.png" loading="eager" alt="logo teamdeb" class="passante-slide__image" referrerpolicy="no-referrer">
                 </div>
                 <div class="passante-slide swiper-slide">
-                  <img src="./assets/img/Logo_uomo.png" loading="eager" alt="logo uomo" class="passante-slide__image" referrerpolicy="no-referrer">
+                  <img src="./assets/img/Logo_uomo" loading="eager" alt="logo uomo" class="passante-slide__image" referrerpolicy="no-referrer">
                 </div>
                 <div class="passante-slide swiper-slide">
                   <img src="./assets/img/Logo_valedosips.png" loading="eager" alt="logo valedosips" class="passante-slide__image" referrerpolicy="no-referrer">
@@ -823,7 +1065,33 @@
           <section id="performance" class="pt-[30px] pb-[30px] md:pt-[60px] md:pb-[60px] px-5 md:px-6">
             <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
               <div class="w-full md:w-1/2">
-                <img src="https://picsum.photos/seed/diagnostico/800/600" alt="Performance de Growth" class="rounded-2xl w-full shadow-2xl border border-white/10" referrerPolicy="no-referrer">
+                <div class="comparison-container">
+                  <section class="comparison">
+                    <div class="side">
+                      <h3 class="comparison-title">Marketing<br>Tradicional</h3>
+                      <div class="funnel traditional">
+                        <div class="segment s1">Aquisição</div>
+                        <div class="segment s2">Ativação</div>
+                        <div class="segment s3">Retenção</div>
+                        <div class="segment s4">Indicação</div>
+                        <div class="segment s5">Receita</div>
+                      </div>
+                    </div>
+                    <div class="divider">
+                      <div class="vs-badge">VS</div>
+                    </div>
+                    <div class="side">
+                      <h3 class="comparison-title">Marketing de<br>Crescimento</h3>
+                      <div class="funnel growth">
+                        <div class="segment s1">Aquisição</div>
+                        <div class="segment s2">Ativação</div>
+                        <div class="segment s3">Retenção</div>
+                        <div class="segment s4">Indicação</div>
+                        <div class="segment s5">Receita</div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
               </div>
               <div class="w-full md:w-1/2 text-left">
                 <h2 class="!text-[30px] lg:!text-[36px] !leading-[38px] mb-6 !font-['Plus_Jakarta_Sans',_sans-serif] text-[#f6e9d9]">Growth Marketing</h2>
@@ -836,7 +1104,7 @@
                         <path d="M4 12h6M14 6h6M14 18h6M10 4v16" />
                       </svg>
                     </div>
-                    <span style="font-size: 17px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: Arial, sans-serif;">Estratégias para vender com mais lucro</span>
+                    <span style="font-size: 14px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: Arial, sans-serif; text-transform: capitalize;">Estratégias para vender com mais lucro</span>
                   </div>
 
                   <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -846,7 +1114,7 @@
                         <path d="M20 20l-3.5-3.5"></path>
                       </svg>
                     </div>
-                    <span style="font-size: 17px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: Arial, sans-serif;">Especialistas em performance</span>
+                    <span style="font-size: 14px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: Arial, sans-serif; text-transform: capitalize;">Especialistas em performance</span>
                   </div>
 
                   <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -857,7 +1125,7 @@
                         <path d="M5 9l10 10"></path>
                       </svg>
                     </div>
-                    <span style="font-size: 17px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: Arial, sans-serif;">Tráfego Pago Avançado</span>
+                    <span style="font-size: 14px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: Arial, sans-serif; text-transform: capitalize;">Tráfego Pago Avançado</span>
                   </div>
 
                   <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -869,7 +1137,7 @@
                         <path d="M8 15h5"></path>
                       </svg>
                     </div>
-                    <span style="font-size: 17px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: Arial, sans-serif;">Estruturação de ICP Completa</span>
+                    <span style="font-size: 14px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: Arial, sans-serif; text-transform: capitalize;">Estruturação de ICP Completa</span>
                   </div>
 
                   <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -881,7 +1149,7 @@
                         <path d="M17 16v-4"></path>
                       </svg>
                     </div>
-                    <span style="font-size: 17px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: Arial, sans-serif;">Análise Completa de Marketing e Vendas</span>
+                    <span style="font-size: 14px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: Arial, sans-serif; text-transform: capitalize;">Análise Completa de Marketing e Vendas</span>
                   </div>
 
                   <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -890,7 +1158,7 @@
                         <path d="M3 12h5l3-8 4 16 3-8h3"></path>
                       </svg>
                     </div>
-                    <span style="font-size: 17px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: Arial, sans-serif;">Diagnóstico de jornada de conversão do cliente</span>
+                    <span style="font-size: 14px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: Arial, sans-serif; text-transform: capitalize;">Diagnóstico de jornada de conversão do cliente</span>
                   </div>
 
                   <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -900,7 +1168,7 @@
                         <circle cx="12" cy="12" r="9"></circle>
                       </svg>
                     </div>
-                    <span style="font-size: 17px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: Arial, sans-serif;">Análises periódicas</span>
+                    <span style="font-size: 14px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: Arial, sans-serif; text-transform: capitalize;">Análises periódicas</span>
                   </div>
 
                   <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -912,7 +1180,7 @@
                         <path d="M8 17h5"></path>
                       </svg>
                     </div>
-                    <span style="font-size: 17px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: Arial, sans-serif;">Relatórios mensais para acompanhamento</span>
+                    <span style="font-size: 14px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: Arial, sans-serif; text-transform: capitalize;">Relatórios mensais para acompanhamento</span>
                   </div>
 
                   <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -921,7 +1189,7 @@
                         <path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                       </svg>
                     </div>
-                    <span style="font-size: 17px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: Arial, sans-serif;">Suporte no grupo do WhatsApp</span>
+                    <span style="font-size: 14px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: Arial, sans-serif; text-transform: capitalize;">Suporte no grupo do WhatsApp</span>
                   </div>
                 </div>
 
@@ -958,7 +1226,7 @@
                         <path d="M17 16v-4"></path>
                       </svg>
                     </div>
-                    <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">Analisamos 100% do marketing e vendas</span>
+                    <span style="font-size: 14px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif; text-transform: capitalize;">Analisamos 100% do marketing e vendas</span>
                   </div>
 
                   <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -967,7 +1235,7 @@
                         <path d="M3 12h5l3-8 4 16 3-8h3"></path>
                       </svg>
                     </div>
-                    <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">Antecipamos e resolvemos problemas</span>
+                    <span style="font-size: 14px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif; text-transform: capitalize;">Antecipamos e resolvemos problemas</span>
                   </div>
 
                   <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -979,7 +1247,7 @@
                         <path d="M8 15h5"></path>
                       </svg>
                     </div>
-                    <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">Frameworks Validados</span>
+                    <span style="font-size: 14px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif; text-transform: capitalize;">Frameworks Validados</span>
                   </div>
 
                   <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -990,7 +1258,7 @@
                         <path d="M5 9l10 10"></path>
                       </svg>
                     </div>
-                    <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">Processos Validados</span>
+                    <span style="font-size: 14px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif; text-transform: capitalize;">Processos Validados</span>
                   </div>
 
                   <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -1000,7 +1268,7 @@
                         <path d="M20 20l-3.5-3.5"></path>
                       </svg>
                     </div>
-                    <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">Mentorias 1x1</span>
+                    <span style="font-size: 14px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif; text-transform: capitalize;">Mentorias 1x1</span>
                   </div>
 
                   <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -1009,7 +1277,7 @@
                         <path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                       </svg>
                     </div>
-                    <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">Suporte Prioritário</span>
+                    <span style="font-size: 14px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif; text-transform: capitalize;">Suporte Prioritário</span>
                   </div>
 
                   <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -1018,7 +1286,7 @@
                         <path d="M4 12h6M14 6h6M14 18h6M10 4v16" />
                       </svg>
                     </div>
-                    <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">Aprimoramento técnico</span>
+                    <span style="font-size: 14px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif; text-transform: capitalize;">Aprimoramento técnico</span>
                   </div>
                 </div>
                 <div class="flex justify-center md:justify-start">
@@ -1054,7 +1322,7 @@
                         <path d="M17 16v-4"></path>
                       </svg>
                     </div>
-                    <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">Diagnosticamos o problema mais latente</span>
+                    <span style="font-size: 14px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif; text-transform: capitalize;">Diagnosticamos o problema mais latente</span>
                   </div>
 
                   <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -1063,7 +1331,7 @@
                         <path d="M3 12h5l3-8 4 16 3-8h3"></path>
                       </svg>
                     </div>
-                    <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">Criação de plano de resolução de gargalo</span>
+                    <span style="font-size: 14px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif; text-transform: capitalize;">Criação de plano de resolução de gargalo</span>
                   </div>
 
                   <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -1075,7 +1343,7 @@
                         <path d="M8 15h5"></path>
                       </svg>
                     </div>
-                    <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">Visão estratégica de toda a estrutura de marketing</span>
+                    <span style="font-size: 14px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif; text-transform: capitalize;">Visão estratégica de toda a estrutura de marketing</span>
                   </div>
 
                   <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -1086,7 +1354,7 @@
                         <path d="M5 9l10 10"></path>
                       </svg>
                     </div>
-                    <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">Resolução de problema latente</span>
+                    <span style="font-size: 14px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif; text-transform: capitalize;">Resolução de problema latente</span>
                   </div>
 
                   <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -1096,7 +1364,7 @@
                         <path d="M20 20l-3.5-3.5"></path>
                       </svg>
                     </div>
-                    <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">Direcionamento detalhado</span>
+                    <span style="font-size: 14px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif; text-transform: capitalize;">Direcionamento detalhado</span>
                   </div>
                 </div>
                 <div class="flex justify-center md:justify-start">
@@ -1129,7 +1397,7 @@
                         <path d="M4 12h6M14 6h6M14 18h6M10 4v16" />
                       </svg>
                     </div>
-                    <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">entendemos seu cliente</span>
+                    <span style="font-size: 14px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif; text-transform: capitalize;">entendemos seu cliente</span>
                   </div>
 
                   <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -1139,7 +1407,7 @@
                         <path d="M20 20l-3.5-3.5"></path>
                       </svg>
                     </div>
-                    <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">analisamos sua operação</span>
+                    <span style="font-size: 14px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif; text-transform: capitalize;">analisamos sua operação</span>
                   </div>
 
                   <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -1148,7 +1416,7 @@
                         <path d="M3 12h5l3-8 4 16 3-8h3"></path>
                       </svg>
                     </div>
-                    <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">encontramos o gargalo</span>
+                    <span style="font-size: 14px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif; text-transform: capitalize;">encontramos o gargalo</span>
                   </div>
 
                   <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -1159,7 +1427,7 @@
                         <path d="M5 9l10 10"></path>
                       </svg>
                     </div>
-                    <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">propomos uma resolução</span>
+                    <span style="font-size: 14px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif; text-transform: capitalize;">propomos uma resolução</span>
                   </div>
 
                   <div style="display: flex; align-items: center; gap: 12px; padding: 14px 10px;">
@@ -1171,7 +1439,7 @@
                         <path d="M8 15h5"></path>
                       </svg>
                     </div>
-                    <span style="font-size: 12px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif;">100% gratuito</span>
+                    <span style="font-size: 14px; line-height: 1.3; color: #f2f5f7; font-weight: 400; font-family: 'Plus Jakarta Sans', sans-serif; text-transform: capitalize;">100% gratuito</span>
                   </div>
                 </div>
                 <div class="flex justify-center md:justify-start">
@@ -1456,12 +1724,12 @@
           </section>
 
           <!-- CTA Final -->
-          <section class="py-[30px] md:py-[100px] px-5 md:px-6 text-left md:text-center">
+          <section class="py-[30px] md:py-[100px] px-5 md:px-6 text-center">
             <div class="max-w-4xl mx-auto">
-              <h2 class="!text-[30px] lg:!text-[36px] !leading-[38px] text-[#f6e9d9] mb-8 font-medium text-left md:text-center !font-['Plus_Jakarta_Sans',_sans-serif]">
+              <h2 class="!text-[30px] lg:!text-[36px] !leading-[38px] text-[#f6e9d9] mb-8 font-medium text-center !font-['Plus_Jakarta_Sans',_sans-serif]">
                 Quer transformar marketing no seu motor de <span class="text-emerald-500">CRESCIMENTO PREVISÍVEL?</span>
               </h2>
-              <p class="text-base md:text-lg mb-12 text-left md:text-center">Agende um horário com nosso time de especialistas.</p>
+              <p class="text-base md:text-lg mb-12 text-center">Agende um horário com nosso time de especialistas.</p>
               <div class="flex justify-center flex-wrap gap-4 mt-10">
                 <a 
                   href="https://calendly.com/tetragrowthgestao/growthcall" 
@@ -1477,6 +1745,79 @@
               </div>
             </div>
           </section>
+
+          <!-- FAQ Section -->
+          <section id="faq" class="py-[60px] md:py-[100px] px-5 md:px-6">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+              <div>
+                <h2 class="!text-[14px] !leading-[1.1] text-[#f6e9d9] mb-6 font-medium !font-['Plus_Jakarta_Sans',_sans-serif] uppercase">
+                  FAQ<br/><span class="text-emerald-500 uppercase">DÚVIDAS FREQUENTES</span>
+                </h2>
+                <p class="text-lg text-white/60 max-w-md">
+                  Tire suas principais dúvidas sobre como a Tetra Growth pode ajudar seu negócio a escalar com previsibilidade.
+                </p>
+              </div>
+              <div>
+                <div class="faq-accordion">
+                  <div class="faq-content">
+                    <div class="faq-content__hero">
+                      <h3 class="faq-content__hero__title">Vocês garantem resultado?</h3>
+                      <img src="https://cdn.prod.website-files.com/66abe745afaa2b8c0a261b86/66b382c303730bb3f5dc0892_arrow.svg" loading="lazy" alt="" class="faq-content__hero__icon">
+                    </div>
+                    <div class="faq-content__description">
+                      <p class="faq-content__description__text">Só faríamos isso se fôssemos desonestos. Na verdade, nós garantimos a você um serviço de alta qualidade. O resultado é consequência. Essa é a mesma resposta que nós demos para empreendedores parceiros em que nós ajudamos a escalar em mais de 10x o faturamento.</p>
+                    </div>
+                  </div>
+                  <div class="faq-content">
+                    <div class="faq-content__hero">
+                      <h3 class="faq-content__hero__title">Quanto custa?</h3>
+                      <img src="https://cdn.prod.website-files.com/66abe745afaa2b8c0a261b86/66b382c303730bb3f5dc0892_arrow.svg" loading="lazy" alt="" class="faq-content__hero__icon">
+                    </div>
+                    <div class="faq-content__description">
+                      <p class="faq-content__description__text">O investimento no serviço depende do escopo do projeto. Os valores se iniciam em R$497. Você pode receber uma proposta personalizada para o seu negócio preenchendo o formulário agora.</p>
+                    </div>
+                  </div>
+                  <div class="faq-content">
+                    <div class="faq-content__hero">
+                      <h3 class="faq-content__hero__title">Quais serviços vocês prestam?</h3>
+                      <img src="https://cdn.prod.website-files.com/66abe745afaa2b8c0a261b86/66b382c303730bb3f5dc0892_arrow.svg" loading="lazy" alt="" class="faq-content__hero__icon">
+                    </div>
+                    <div class="faq-content__description">
+                      <p class="faq-content__description__text">O nosso forte é o crescimento do lucro de negócios a partir dos anúncios online e IA. Nós estruturamos toda a estratégia de crescimento para seu negócio desde o que fazer até o resultado final esperado.  Nesse sentido, nós confeccionamos para você,  campanhas de vendas, trabalhamos estratégias de remarketing, ações de crescimento, criação de ferramentas com IA, Automações, CRM, processos de vendas, desenvolvimento de produtos e também estratégias de preço.</p>
+                    </div>
+                  </div>
+                  <div class="faq-content">
+                    <div class="faq-content__hero">
+                      <h3 class="faq-content__hero__title">Posso cancelar a qualquer momento?</h3>
+                      <img src="https://cdn.prod.website-files.com/66abe745afaa2b8c0a261b86/66b382c303730bb3f5dc0892_arrow.svg" loading="lazy" alt="" class="faq-content__hero__icon">
+                    </div>
+                    <div class="faq-content__description">
+                      <p class="faq-content__description__text">Se, por qualquer motivo, você não estiver 100% satisfeito com o nosso serviço, basta solicitar o cancelamento do contrato em 30 dias</p>
+                    </div>
+                  </div>
+                  <div class="faq-content">
+                    <div class="faq-content__hero">
+                      <h3 class="faq-content__hero__title">Quanto devo investir em tráfego?</h3>
+                      <img src="https://cdn.prod.website-files.com/66abe745afaa2b8c0a261b86/66b382c303730bb3f5dc0892_arrow.svg" loading="lazy" alt="" class="faq-content__hero__icon">
+                    </div>
+                    <div class="faq-content__description">
+                      <p class="faq-content__description__text">Nós recomendamos aos nossos clientes um investimento mínimo de R$60 por dia. Este valor é mais do que suficiente para os testes iniciais. À medida que você for obtendo seus primeiros resultados, você pode aumentar o seu investimento mensal.</p>
+                    </div>
+                  </div>
+                  <div class="faq-content">
+                    <div class="faq-content__hero">
+                      <h3 class="faq-content__hero__title">Vocês fazem campanhas únicas?</h3>
+                      <img src="https://cdn.prod.website-files.com/66abe745afaa2b8c0a261b86/66b382c303730bb3f5dc0892_arrow.svg" loading="lazy" alt="" class="faq-content__hero__icon">
+                    </div>
+                    <div class="faq-content__description">
+                      <p class="faq-content__description__text">Sim. Nós fazemos campanhas únicas desde que sejamos acionado com pelo menos 6 meses de antecedência e o orçamento da campanha seja superior a 100 mil reais</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
         </main>
 
         <footer class="py-12 px-5 md:px-6 border-t border-white/5">
@@ -1557,6 +1898,23 @@
                 link.classList.add('active');
               }
             });
+          }
+        });
+      });
+
+      // FAQ Accordion Toggle
+      document.querySelectorAll('.faq-content').forEach(faq => {
+        faq.addEventListener('click', () => {
+          const isActive = faq.classList.contains('active');
+          
+          // Close all other FAQs
+          document.querySelectorAll('.faq-content').forEach(otherFaq => {
+            otherFaq.classList.remove('active');
+          });
+
+          // Toggle current FAQ
+          if (!isActive) {
+            faq.classList.add('active');
           }
         });
       });
