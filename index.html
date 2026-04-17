@@ -152,12 +152,119 @@
         gap: 12px;
       }
 
-      .liquid-glass:hover {
+      .liquid-glass-item {
+        --mx: 50%;
+        --my: 50%;
+        --rx: 0deg;
+        --ry: 0deg;
+        --glow-opacity: 0;
+        position: relative;
+        width: 100%;
+        padding: 24px 16px;
+        border-radius: 20px;
+        overflow: hidden;
+        color: rgba(255,255,255,0.96);
+        transform-style: preserve-3d;
+        transform:
+          rotateX(var(--rx))
+          rotateY(var(--ry))
+          translateZ(0);
+
+        transition:
+          transform 180ms ease,
+          box-shadow 220ms ease,
+          border-color 220ms ease,
+          background 220ms ease,
+          backdrop-filter 220ms ease;
+
+        background: linear-gradient(
+          180deg,
+          rgba(255,255,255,0.060) 0%,
+          rgba(255,255,255,0.038) 48%,
+          rgba(255,255,255,0.026) 100%
+        );
+
+        border: 1px solid rgba(255,255,255,0.12);
+
+        backdrop-filter: blur(20px) saturate(112%) contrast(1.01);
+        -webkit-backdrop-filter: blur(20px) saturate(112%) contrast(1.01);
+
+        box-shadow:
+          0 10px 30px rgba(0,0,0,0.15),
+          inset 0 1px 0 rgba(255,255,255,0.1),
+          inset 0 -1px 0 rgba(255,255,255,0.02);
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+      }
+
+      .liquid-glass-item:hover {
         border-color: rgba(255,255,255,0.15);
         box-shadow:
-          0 26px 64px rgba(0,0,0,0.26),
-          inset 0 1px 0 rgba(255,255,255,0.16),
+          0 15px 40px rgba(0,0,0,0.20),
+          inset 0 1px 0 rgba(255,255,255,0.12),
           inset 0 -1px 0 rgba(255,255,255,0.03);
+      }
+
+      .liquid-glass-item::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          circle at var(--mx) var(--my),
+          rgba(16, 185, 129, 0.15) 0%,
+          transparent 60%
+        );
+        opacity: var(--glow-opacity);
+        transition: opacity 0.4s ease;
+        pointer-events: none;
+      }
+
+      .liquid-glass-item h3 {
+        font-family: var(--font-display);
+        font-size: 1.125rem;
+        font-weight: 700;
+        margin-top: 8px;
+        color: #f6e9d9;
+      }
+
+      .liquid-glass-item p {
+        font-size: 0.875rem;
+        line-height: 1.5;
+        color: rgba(246, 233, 217, 0.7);
+      }
+
+      .liquid-glass-item svg {
+        transition: transform 0.4s var(--ease-out-expo);
+      }
+
+      .liquid-glass-item:hover svg {
+        transform: scale(1.1) rotate(5deg);
+      }
+
+      /* Stats section specifics */
+      .liquid-glass h2 {
+        font-size: clamp(2.5rem, 5vw, 3.5rem);
+        font-family: var(--font-display);
+        background-image: linear-gradient(135deg, #4ade80, #10b981 58%, #107f53);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        line-height: 1;
+        margin-bottom: 0.5rem;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+      }
+
+      .liquid-glass p {
+        font-size: 0.95rem;
+        color: #9ba89f;
+        line-height: 1.6;
+        max-width: 240px;
       }
 
       .liquid-glass > * {
@@ -779,7 +886,7 @@
         width: 16px;
         height: 16px;
         transition: transform 0.3s ease;
-        filter: invert(1);
+        filter: brightness(0) invert(1);
         display: inline-block !important;
         margin: 0 !important;
       }
@@ -818,147 +925,6 @@
         }
       }
 
-      /* Comparison Component Styles */
-      .comparison-container {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 20px 0;
-        --comp-c1: #406D61;
-        --comp-c2: #224B40;
-        --comp-c3: #133129;
-        --comp-c4: #081F1C;
-        --comp-c5: #021010;
-        --comp-light-1: rgba(64, 109, 97, 0.10);
-        --comp-light-2: rgba(34, 75, 64, 0.12);
-        --comp-light-3: rgba(19, 49, 41, 0.14);
-        --comp-light-4: rgba(8, 31, 28, 0.16);
-      }
-
-      .comparison {
-        width: 100%;
-        display: grid;
-        grid-template-columns: 1fr 100px 1fr;
-        align-items: center;
-        gap: 16px;
-      }
-
-      .comparison .side {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-      }
-
-      .comparison .comparison-title {
-        text-align: center;
-        font-size: clamp(1.2rem, 2vw, 1.8rem);
-        line-height: 1.1;
-        font-weight: 700;
-        letter-spacing: -0.04em;
-        color: #f6e9d9;
-        text-transform: none;
-      }
-
-      .comparison .funnel {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 4px;
-      }
-
-      .comparison .segment {
-        height: 48px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: clamp(0.8rem, 1.2vw, 1rem);
-        font-weight: 600;
-        clip-path: polygon(8% 0%, 92% 0%, 84% 100%, 16% 100%);
-        letter-spacing: -0.02em;
-        width: 100%;
-      }
-
-      .comparison .s1 { max-width: 280px; }
-      .comparison .s2 { max-width: 240px; }
-      .comparison .s3 { max-width: 210px; }
-      .comparison .s4 { max-width: 185px; }
-      .comparison .s5 { max-width: 165px; }
-
-      /* Funil esquerdo */
-      .comparison .traditional .s1 {
-        background: linear-gradient(135deg, var(--comp-c1), var(--comp-c2));
-        color: #ffffff;
-      }
-      .comparison .traditional .s2 { background: var(--comp-light-1); color: #f6e9d9; }
-      .comparison .traditional .s3 { background: var(--comp-light-2); color: #f6e9d9; }
-      .comparison .traditional .s4 { background: var(--comp-light-3); color: #f6e9d9; }
-      .comparison .traditional .s5 { background: var(--comp-light-4); color: #f6e9d9; }
-
-      /* Funil direito */
-      .comparison .growth .s1 { background: var(--comp-c1); color: #fff; }
-      .comparison .growth .s2 { background: var(--comp-c2); color: #fff; }
-      .comparison .growth .s3 { background: var(--comp-c3); color: #fff; }
-      .comparison .growth .s4 { background: var(--comp-c4); color: #fff; }
-      .comparison .growth .s5 { background: var(--comp-c5); color: #fff; }
-
-      .comparison .growth .segment {
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
-      }
-
-      /* Divisor central */
-      .comparison .divider {
-        height: 300px;
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .comparison .divider::before,
-      .comparison .divider::after {
-        content: "";
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 1px;
-        background: rgba(255,255,255,0.2);
-      }
-
-      .comparison .divider::before { top: 0; height: 100px; }
-      .comparison .divider::after { bottom: 0; height: 100px; }
-
-      .comparison .vs-badge {
-        width: 80px;
-        height: 80px;
-        background: #10b981;
-        clip-path: polygon(50% 0%, 63% 37%, 100% 50%, 63% 63%, 50% 100%, 37% 63%, 0% 50%, 37% 37%);
-        display: grid;
-        place-items: center;
-        color: white;
-        font-weight: 800;
-        font-size: 1.2rem;
-      }
-
-      @media (max-width: 900px) {
-        .comparison {
-          grid-template-columns: 1fr;
-          gap: 15px;
-        }
-        .comparison .side { gap: 10px; }
-        .comparison .comparison-title { font-size: 0.9rem; }
-        .comparison .s1 { max-width: 140px; }
-        .comparison .s2 { max-width: 120px; }
-        .comparison .s3 { max-width: 105px; }
-        .comparison .s4 { max-width: 92px; }
-        .comparison .s5 { max-width: 82px; }
-        .comparison .segment { height: 24px; font-size: 0.6rem; }
-        .comparison .divider { height: 60px; }
-        .comparison .divider::before, .comparison .divider::after { display: none; }
-        .comparison .vs-badge { width: 40px; height: 40px; font-size: 0.8rem; }
-      }
     </style>
   </head>
   <body>
@@ -1065,33 +1031,7 @@
           <section id="performance" class="pt-[30px] pb-[30px] md:pt-[60px] md:pb-[60px] px-5 md:px-6">
             <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
               <div class="w-full md:w-1/2">
-                <div class="comparison-container">
-                  <section class="comparison">
-                    <div class="side">
-                      <h3 class="comparison-title">Marketing<br>Tradicional</h3>
-                      <div class="funnel traditional">
-                        <div class="segment s1">Aquisição</div>
-                        <div class="segment s2">Ativação</div>
-                        <div class="segment s3">Retenção</div>
-                        <div class="segment s4">Indicação</div>
-                        <div class="segment s5">Receita</div>
-                      </div>
-                    </div>
-                    <div class="divider">
-                      <div class="vs-badge">VS</div>
-                    </div>
-                    <div class="side">
-                      <h3 class="comparison-title">Marketing de<br>Crescimento</h3>
-                      <div class="funnel growth">
-                        <div class="segment s1">Aquisição</div>
-                        <div class="segment s2">Ativação</div>
-                        <div class="segment s3">Retenção</div>
-                        <div class="segment s4">Indicação</div>
-                        <div class="segment s5">Receita</div>
-                      </div>
-                    </div>
-                  </section>
-                </div>
+                <img src="./assets/img/growth.svg" alt="Performance de Growth" class="rounded-2xl w-full shadow-2xl border border-white/10" referrerPolicy="no-referrer">
               </div>
               <div class="w-full md:w-1/2 text-left">
                 <h2 class="!text-[30px] lg:!text-[36px] !leading-[38px] mb-6 !font-['Plus_Jakarta_Sans',_sans-serif] text-[#f6e9d9]">Growth Marketing</h2>
@@ -1211,7 +1151,7 @@
           <section id="acompanhamento" class="pt-[30px] pb-[30px] md:pt-[60px] md:pb-[60px] px-5 md:px-6">
             <div class="max-w-7xl mx-auto flex flex-col md:flex-row-reverse items-center gap-12">
               <div class="w-full md:w-1/2">
-                <img src="https://picsum.photos/seed/strategy/800/600" alt="Acompanhamento Estrategico" class="rounded-2xl w-full shadow-2xl border border-white/10" referrerPolicy="no-referrer">
+                <img src="./assets/img/acompanhamento.svg" alt="Acompanhamento Estrategico" class="rounded-2xl w-full shadow-2xl border border-white/10" referrerPolicy="no-referrer">
               </div>
               <div class="w-full md:w-1/2 text-left">
                 <h2 class="!text-[30px] lg:!text-[36px] !leading-[38px] mb-6 !font-['Plus_Jakarta_Sans',_sans-serif] text-[#f6e9d9]">Acompanhamento estratégico</h2>
@@ -1307,7 +1247,7 @@
           <section id="mentoriapontual" class="pt-[30px] pb-[30px] md:pt-[60px] md:pb-[60px] px-5 md:px-6">
             <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
               <div class="w-full md:w-1/2">
-                <img src="https://picsum.photos/seed/operation/800/600" alt="Mentoria Pontual de Growth" class="rounded-2xl w-full shadow-2xl border border-white/10" referrerPolicy="no-referrer">
+                <img src="./assets/img/mentoria.svg" alt="Mentoria Pontual de Growth" class="rounded-2xl w-full shadow-2xl border border-white/10" referrerPolicy="no-referrer">
               </div>
               <div class="w-full md:w-1/2 text-left">
                 <h2 class="!text-[30px] lg:!text-[36px] !leading-[38px] mb-6 !font-['Plus_Jakarta_Sans',_sans-serif] text-[#f6e9d9]">Mentoria pontual</h2>
@@ -1385,7 +1325,7 @@
           <section id="diagnostico" class="pt-[30px] pb-[30px] md:pt-[60px] md:pb-[60px] px-5 md:px-6">
             <div class="max-w-7xl mx-auto flex flex-col md:flex-row-reverse items-center gap-12">
               <div class="w-full md:w-1/2">
-                <img src="https://picsum.photos/seed/mentoring/800/600" alt="Diagnostico de Growth" class="rounded-2xl w-full shadow-2xl border border-white/10" referrerPolicy="no-referrer">
+                <img src="./assets/img/diagnostico.svg" alt="Diagnostico de Growth" class="rounded-2xl w-full shadow-2xl border border-white/10" referrerPolicy="no-referrer">
               </div>
               <div class="w-full md:w-1/2 text-left">
                 <h2 class="!text-[30px] lg:!text-[36px] !leading-[38px] mb-6 !font-['Plus_Jakarta_Sans',_sans-serif] text-[#f6e9d9]">Diagnóstico de Growth</h2>
@@ -1476,34 +1416,7 @@
                   </div>
 
                   <script>
-                    (function() {
-                      const glass = document.getElementById("glass-card-1");
-                      if (!glass) return;
-
-                      glass.addEventListener("mousemove", (e) => {
-                        const rect = glass.getBoundingClientRect();
-                        const x = e.clientX - rect.left;
-                        const y = e.clientY - rect.top;
-
-                        const px = x / rect.width;
-                        const py = y / rect.height;
-
-                        const ry = (px - 0.5) * 12;
-                        const rx = (0.5 - py) * 12;
-
-                        glass.style.setProperty("--mx", `${x}px`);
-                        glass.style.setProperty("--my", `${y}px`);
-                        glass.style.setProperty("--rx", `${rx}deg`);
-                        glass.style.setProperty("--ry", `${ry}deg`);
-                        glass.style.setProperty("--glow-opacity", "1");
-                      });
-
-                      glass.addEventListener("mouseleave", () => {
-                        glass.style.setProperty("--rx", "0deg");
-                        glass.style.setProperty("--ry", "0deg");
-                        glass.style.setProperty("--glow-opacity", "0");
-                      });
-                    })();
+                    // Script removido - efeito agora gerenciado globalmente no final do body
                   </script>
                 </div>
                 <div class="w-full">
@@ -1515,34 +1428,7 @@
                   </div>
 
                   <script>
-                    (function() {
-                      const glass = document.getElementById("glass-card-2");
-                      if (!glass) return;
-
-                      glass.addEventListener("mousemove", (e) => {
-                        const rect = glass.getBoundingClientRect();
-                        const x = e.clientX - rect.left;
-                        const y = e.clientY - rect.top;
-
-                        const px = x / rect.width;
-                        const py = y / rect.height;
-
-                        const ry = (px - 0.5) * 12;
-                        const rx = (0.5 - py) * 12;
-
-                        glass.style.setProperty("--mx", `${x}px`);
-                        glass.style.setProperty("--my", `${y}px`);
-                        glass.style.setProperty("--rx", `${rx}deg`);
-                        glass.style.setProperty("--ry", `${ry}deg`);
-                        glass.style.setProperty("--glow-opacity", "1");
-                      });
-
-                      glass.addEventListener("mouseleave", () => {
-                        glass.style.setProperty("--rx", "0deg");
-                        glass.style.setProperty("--ry", "0deg");
-                        glass.style.setProperty("--glow-opacity", "0");
-                      });
-                    })();
+                    // Script removido - efeito agora gerenciado globalmente no final do body
                   </script>
                 </div>
                 <div class="w-full">
@@ -1554,34 +1440,7 @@
                   </div>
 
                   <script>
-                    (function() {
-                      const glass = document.getElementById("glass-card-3");
-                      if (!glass) return;
-
-                      glass.addEventListener("mousemove", (e) => {
-                        const rect = glass.getBoundingClientRect();
-                        const x = e.clientX - rect.left;
-                        const y = e.clientY - rect.top;
-
-                        const px = x / rect.width;
-                        const py = y / rect.height;
-
-                        const ry = (px - 0.5) * 12;
-                        const rx = (0.5 - py) * 12;
-
-                        glass.style.setProperty("--mx", `${x}px`);
-                        glass.style.setProperty("--my", `${y}px`);
-                        glass.style.setProperty("--rx", `${rx}deg`);
-                        glass.style.setProperty("--ry", `${ry}deg`);
-                        glass.style.setProperty("--glow-opacity", "1");
-                      });
-
-                      glass.addEventListener("mouseleave", () => {
-                        glass.style.setProperty("--rx", "0deg");
-                        glass.style.setProperty("--ry", "0deg");
-                        glass.style.setProperty("--glow-opacity", "0");
-                      });
-                    })();
+                    // Script removido - efeito agora gerenciado globalmente no final do body
                   </script>
                 </div>
               </div>
@@ -1614,37 +1473,53 @@
               </div>
 
               <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
-                <div class="card-gradient p-4 md:p-6 rounded-xl flex flex-col items-center justify-center gap-4 text-center shadow-lg hover:scale-105 transition-transform duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F6E9D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
-                  <span class="text-[#F6E9D9] text-xs font-bold uppercase tracking-wider">Comercial</span>
+                <div class="liquid-glass-wrapper">
+                  <div class="liquid-glass-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F6E9D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+                    <span class="text-[#F6E9D9] text-xs font-bold uppercase tracking-wider">Comercial</span>
+                  </div>
                 </div>
-                <div class="card-gradient p-4 md:p-6 rounded-xl flex flex-col items-center justify-center gap-4 text-center shadow-lg hover:scale-105 transition-transform duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F6E9D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg>
-                  <span class="text-[#F6E9D9] text-xs font-bold uppercase tracking-wider">Vendas</span>
+                <div class="liquid-glass-wrapper">
+                  <div class="liquid-glass-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F6E9D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg>
+                    <span class="text-[#F6E9D9] text-xs font-bold uppercase tracking-wider">Vendas</span>
+                  </div>
                 </div>
-                <div class="card-gradient p-4 md:p-6 rounded-xl flex flex-col items-center justify-center gap-4 text-center shadow-lg hover:scale-105 transition-transform duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F6E9D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>
-                  <span class="text-[#F6E9D9] text-xs font-bold uppercase tracking-wider">Financeiro</span>
+                <div class="liquid-glass-wrapper">
+                  <div class="liquid-glass-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F6E9D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>
+                    <span class="text-[#F6E9D9] text-xs font-bold uppercase tracking-wider">Financeiro</span>
+                  </div>
                 </div>
-                <div class="card-gradient p-4 md:p-6 rounded-xl flex flex-col items-center justify-center gap-4 text-center shadow-lg hover:scale-105 transition-transform duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F6E9D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
-                  <span class="text-[#F6E9D9] text-xs font-bold uppercase tracking-wider">Gestão</span>
+                <div class="liquid-glass-wrapper">
+                  <div class="liquid-glass-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F6E9D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+                    <span class="text-[#F6E9D9] text-xs font-bold uppercase tracking-wider">Gestão</span>
+                  </div>
                 </div>
-                <div class="card-gradient p-4 md:p-6 rounded-xl flex flex-col items-center justify-center gap-4 text-center shadow-lg hover:scale-105 transition-transform duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F6E9D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="4" height="4" x="4" y="4" rx="1"/><rect width="4" height="4" x="16" y="4" rx="1"/><rect width="4" height="4" x="16" y="16" rx="1"/><rect width="4" height="4" x="4" y="16" rx="1"/><path d="M9 6h7"/><path d="M17 9v7"/><path d="M15 18H8"/><path d="M6 15V9"/></svg>
-                  <span class="text-[#F6E9D9] text-xs font-bold uppercase tracking-wider">Processos</span>
+                <div class="liquid-glass-wrapper">
+                  <div class="liquid-glass-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F6E9D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="4" height="4" x="4" y="4" rx="1"/><rect width="4" height="4" x="16" y="4" rx="1"/><rect width="4" height="4" x="16" y="16" rx="1"/><rect width="4" height="4" x="4" y="16" rx="1"/><path d="M9 6h7"/><path d="M17 9v7"/><path d="M15 18H8"/><path d="M6 15V9"/></svg>
+                    <span class="text-[#F6E9D9] text-xs font-bold uppercase tracking-wider">Processos</span>
+                  </div>
                 </div>
-                <div class="card-gradient p-4 md:p-6 rounded-xl flex flex-col items-center justify-center gap-4 text-center shadow-lg hover:scale-105 transition-transform duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F6E9D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
-                  <span class="text-[#F6E9D9] text-xs font-bold uppercase tracking-wider">Automação</span>
+                <div class="liquid-glass-wrapper">
+                  <div class="liquid-glass-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F6E9D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
+                    <span class="text-[#F6E9D9] text-xs font-bold uppercase tracking-wider">Automação</span>
+                  </div>
                 </div>
-                <div class="card-gradient p-4 md:p-6 rounded-xl flex flex-col items-center justify-center gap-4 text-center shadow-lg hover:scale-105 transition-transform duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F6E9D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" x2="22" y1="12" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                  <span class="text-[#F6E9D9] text-xs font-bold uppercase tracking-wider">Sistemas</span>
+                <div class="liquid-glass-wrapper">
+                  <div class="liquid-glass-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F6E9D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" x2="22" y1="12" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    <span class="text-[#F6E9D9] text-xs font-bold uppercase tracking-wider">Sistemas</span>
+                  </div>
                 </div>
-                <div class="card-gradient p-4 md:p-6 rounded-xl flex flex-col items-center justify-center gap-4 text-center shadow-lg hover:scale-105 transition-transform duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F6E9D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.18 6.18a2 2 0 0 0 0 3.64l8.99 4a2 2 0 0 0 1.66 0l8.99-4a2 2 0 0 0 0-3.64Z"/><path d="m2.18 14.18 8.99 4a2 2 0 0 0 1.66 0l8.99-4"/><path d="m2.18 10.18 8.99 4a2 2 0 0 0 1.66 0l8.99-4"/></svg>
-                  <span class="text-[#F6E9D9] text-xs font-bold uppercase tracking-wider">Produto</span>
+                <div class="liquid-glass-wrapper">
+                  <div class="liquid-glass-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F6E9D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.18 6.18a2 2 0 0 0 0 3.64l8.99 4a2 2 0 0 0 1.66 0l8.99-4a2 2 0 0 0 0-3.64Z"/><path d="m2.18 14.18 8.99 4a2 2 0 0 0 1.66 0l8.99-4"/><path d="m2.18 10.18 8.99 4a2 2 0 0 0 1.66 0l8.99-4"/></svg>
+                    <span class="text-[#F6E9D9] text-xs font-bold uppercase tracking-wider">Produto</span>
+                  </div>
                 </div>
               </div>
 
@@ -1671,18 +1546,38 @@
               <h2 class="!text-[30px] lg:!text-[36px] !leading-[38px] mb-6 lg:max-w-[800px] mx-auto text-left md:text-center !font-['Plus_Jakarta_Sans',_sans-serif]">Controle total sobre os resultados</h2>
               <p class="mb-24 text-base md:text-lg lg:max-w-[650px] mx-auto text-left md:text-center">Com uma estratégia voltada 100% para maximização de resultados, geração de receita e crescimento previsível da lucratividade do seu negócio</p>
               
-              <div class="flex flex-col items-center gap-4 max-w-3xl mx-auto">
-                <div class="glass-card w-full px-8 py-4 rounded-xl text-sm text-white font-medium text-center">
-                  Dados em tempo real
+              <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <div class="liquid-glass-wrapper">
+                  <div class="liquid-glass !min-h-[180px]">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg>
+                    </div>
+                    <span class="text-white font-medium text-lg">Dados em tempo real</span>
+                  </div>
                 </div>
-                <div class="glass-card w-full px-8 py-4 rounded-xl text-sm text-white font-medium text-center">
-                  Funil completo de marketing e vendas
+                <div class="liquid-glass-wrapper">
+                  <div class="liquid-glass !min-h-[180px]">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+                    </div>
+                    <span class="text-white font-medium text-lg">Funil completo de marketing e vendas</span>
+                  </div>
                 </div>
-                <div class="glass-card w-full px-8 py-4 rounded-xl text-sm text-white font-medium text-center">
-                  Visualização detalhada de cada conversão
+                <div class="liquid-glass-wrapper">
+                  <div class="liquid-glass !min-h-[180px]">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    </div>
+                    <span class="text-white font-medium text-lg">Visualização detalhada de cada conversão</span>
+                  </div>
                 </div>
-                <div class="glass-card w-full px-8 py-4 rounded-xl text-sm text-white font-medium text-center">
-                  Painéis sob medida para sua operação
+                <div class="liquid-glass-wrapper">
+                  <div class="liquid-glass !min-h-[180px]">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                    </div>
+                    <span class="text-white font-medium text-lg">Painéis sob medida para sua operação</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1941,6 +1836,39 @@
           btn.style.setProperty('--y', `${y}px`);
         });
       });
+
+      // Inicialização Global do Efeito Liquid Glass para cards
+      function initLiquidGlass() {
+        const glasses = document.querySelectorAll(".liquid-glass, .liquid-glass-item");
+        
+        glasses.forEach(glass => {
+          glass.addEventListener("mousemove", (e) => {
+            const rect = glass.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const px = x / rect.width;
+            const py = y / rect.height;
+
+            const ry = (px - 0.5) * 12;
+            const rx = (0.5 - py) * 12;
+
+            glass.style.setProperty("--mx", `${x}px`);
+            glass.style.setProperty("--my", `${y}px`);
+            glass.style.setProperty("--rx", `${rx}deg`);
+            glass.style.setProperty("--ry", `${ry}deg`);
+            glass.style.setProperty("--glow-opacity", "1");
+          });
+
+          glass.addEventListener("mouseleave", () => {
+            glass.style.setProperty("--rx", "0deg");
+            glass.style.setProperty("--ry", "0deg");
+            glass.style.setProperty("--glow-opacity", "0");
+          });
+        });
+      }
+
+      initLiquidGlass();
     </script>
   </body>
 </html>
