@@ -19,6 +19,20 @@ const parseBody = (body) => {
 
 const setJsonHeaders = (res) => {
   res.setHeader("Content-Type", "application/json");
+  res.setHeader("Cache-Control", "no-store");
+};
+
+const getMakeWebhookUrl = () => {
+  const envNames = [
+    "MAKE_WEBHOOK_URL",
+    "MAKE_DIAGNOSTICO_WEBHOOK_URL",
+    "DIAGNOSTICO_WEBHOOK_URL",
+    "WEBHOOK_URL",
+  ];
+
+  return envNames
+    .map((name) => process.env[name]?.trim().replace(/^['"]|['"]$/g, ""))
+    .find(Boolean);
 };
 
 export default async function handler(req, res) {
@@ -35,12 +49,18 @@ export default async function handler(req, res) {
     });
   }
 
-  const makeWebhookUrl = process.env.MAKE_WEBHOOK_URL;
+  const makeWebhookUrl = getMakeWebhookUrl();
 
   if (!makeWebhookUrl) {
     return res.status(500).json({
       ok: false,
       message: "Webhook do Make não configurado.",
+      expected_env: [
+        "MAKE_WEBHOOK_URL",
+        "MAKE_DIAGNOSTICO_WEBHOOK_URL",
+        "DIAGNOSTICO_WEBHOOK_URL",
+        "WEBHOOK_URL",
+      ],
     });
   }
 
@@ -74,21 +94,27 @@ export default async function handler(req, res) {
       body: JSON.stringify(payload),
     });
 
+    const makeResponseText = await makeResponse.text().catch(() => "");
+
     if (!makeResponse.ok) {
       return res.status(502).json({
         ok: false,
         message: "O Make não confirmou o recebimento dos dados.",
+        make_status: makeResponse.status,
+        make_response: makeResponseText.slice(0, 500),
       });
     }
 
     return res.status(200).json({
       ok: true,
       message: "Diagnóstico solicitado com sucesso.",
+      make_status: makeResponse.status,
     });
-  } catch {
+  } catch (error) {
     return res.status(502).json({
       ok: false,
       message: "Não foi possível conectar ao Make.",
+      error: error instanceof Error ? error.message : "Erro desconhecido.",
     });
   }
 }
