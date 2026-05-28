@@ -40,7 +40,7 @@ const Hero = ({ onOpenForm }: HeroProps) => {
           <div className="mx-auto max-w-6xl text-center animate-fade-in-up">
             <p className="eyebrow mb-7">Diagnóstico de marketing</p>
 
-            <h1 className="display-title mx-auto max-w-5xl text-[3.1rem] sm:text-[4.8rem] md:text-[6rem] lg:text-[7.2rem]">
+            <h1 className="display-title mx-auto max-w-5xl text-[2.48rem] sm:text-[4.8rem] md:text-[6rem] lg:text-[7.2rem]">
               Descubra onde seu marketing está perdendo lucro
             </h1>
 
