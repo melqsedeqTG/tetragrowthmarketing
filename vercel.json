@@ -1,0 +1,10 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist-site",
+  "rewrites": [
+    {
+      "source": "/pg2/:path*",
+      "destination": "/pg2/index.html"
+    }
+  ]
+}
