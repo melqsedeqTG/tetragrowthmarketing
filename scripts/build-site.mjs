@@ -1,24 +1,10 @@
 import { cp, mkdir, rm } from "node:fs/promises";
-import { spawnSync } from "node:child_process";
-import { dirname, join, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
+import { join, resolve } from "node:path";
 
-const rootDir = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const pg2Dir = join(rootDir, "pg2");
+const rootDir = resolve(".");
 const outputDir = join(rootDir, "dist-site");
-const npmCommand = process.platform === "win32" ? "npm.cmd" : "npm";
-
-const run = (args, cwd) => {
-  const result = spawnSync(npmCommand, args, {
-    cwd,
-    shell: false,
-    stdio: "inherit",
-  });
-
-  if (result.status !== 0) {
-    process.exit(result.status ?? 1);
-  }
-};
+const pg2Dir = join(rootDir, "pg2");
+const pg2OutputDir = join(outputDir, "pg2");
 
 await rm(outputDir, { force: true, recursive: true });
 await mkdir(outputDir, { recursive: true });
@@ -26,8 +12,14 @@ await mkdir(outputDir, { recursive: true });
 await cp(join(rootDir, "index.html"), join(outputDir, "index.html"));
 await cp(join(rootDir, "assets"), join(outputDir, "assets"), { recursive: true });
 
-run(["ci"], pg2Dir);
-run(["run", "build"], pg2Dir);
-
-await mkdir(join(outputDir, "pg2"), { recursive: true });
-await cp(join(pg2Dir, "dist"), join(outputDir, "pg2"), { recursive: true });
+await mkdir(pg2OutputDir, { recursive: true });
+await cp(join(pg2Dir, "index.html"), join(pg2OutputDir, "index.html"));
+await cp(join(pg2Dir, "styles.css"), join(pg2OutputDir, "styles.css"));
+await cp(join(pg2Dir, "script.js"), join(pg2OutputDir, "script.js"));
+await cp(join(pg2Dir, "favicon.ico"), join(pg2OutputDir, "favicon.ico"));
+await cp(join(pg2Dir, "robots.txt"), join(pg2OutputDir, "robots.txt"));
+await cp(
+  join(pg2Dir, "politica-de-privacidade"),
+  join(pg2OutputDir, "politica-de-privacidade"),
+  { recursive: true },
+);
