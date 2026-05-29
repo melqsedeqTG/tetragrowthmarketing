@@ -17,6 +17,7 @@
   const microcopy = document.querySelector("[data-microcopy]");
   const submitButton = document.querySelector("[data-submit-button]");
   const currentYear = document.querySelector("[data-current-year]");
+  const submitButtonDefaultContent = submitButton?.innerHTML || "Solicitar meu diagnóstico";
 
   const stepOneFields = ["name", "whatsapp", "email", "company", "siteOrInstagram"];
   const stepTwoFields = [
@@ -49,6 +50,7 @@
   const openModal = () => {
     if (!modal) return;
     lastFocusedElement = document.activeElement;
+    modal.hidden = false;
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
     document.body.classList.add("modal-open");
@@ -62,6 +64,7 @@
     if (!modal) return;
     modal.classList.remove("is-open");
     modal.setAttribute("aria-hidden", "true");
+    modal.hidden = true;
     document.body.classList.remove("modal-open");
     if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
       lastFocusedElement.focus();
@@ -72,20 +75,25 @@
     activeStep = step;
 
     const isStepOne = step === 1;
-    stepOne.hidden = !isStepOne;
-    stepTwo.hidden = isStepOne;
-    nextButton.hidden = !isStepOne;
-    finalActions.hidden = isStepOne;
-    microcopy.hidden = isStepOne;
+    if (stepOne) stepOne.hidden = !isStepOne;
+    if (stepTwo) stepTwo.hidden = isStepOne;
+    if (nextButton) nextButton.hidden = !isStepOne;
+    if (finalActions) finalActions.hidden = isStepOne;
+    if (microcopy) microcopy.hidden = isStepOne;
 
-    stepLabel.textContent = `Etapa ${step} de 2`;
-    progressBar.style.width = isStepOne ? "50%" : "100%";
-    document.getElementById("modal-title").textContent = isStepOne
-      ? "Solicite seu diagnóstico"
-      : "Qualifique seu cenário";
-    stepDescription.textContent = isStepOne
-      ? "Preencha seus dados para iniciar a análise."
-      : "Responda às perguntas abaixo para avaliarmos se existe fit para uma reunião estratégica.";
+    if (stepLabel) stepLabel.textContent = `Etapa ${step} de 2`;
+    if (progressBar) progressBar.style.width = isStepOne ? "50%" : "100%";
+    const modalTitle = document.getElementById("modal-title");
+    if (modalTitle) {
+      modalTitle.textContent = isStepOne
+        ? "Solicite seu diagnóstico"
+        : "Qualifique seu cenário";
+    }
+    if (stepDescription) {
+      stepDescription.textContent = isStepOne
+        ? "Preencha seus dados para iniciar a análise."
+        : "Responda às perguntas abaixo para avaliarmos se existe fit para uma reunião estratégica.";
+    }
   };
 
   const setError = (field, message) => {
@@ -293,7 +301,7 @@
     submitButton.disabled = loading;
     submitButton.innerHTML = loading
       ? '<span class="spinner" aria-hidden="true"></span> Enviando...'
-      : 'Solicitar meu diagnóstico <span class="arrow" aria-hidden="true">→</span>';
+      : submitButtonDefaultContent;
   };
 
   const resetForm = () => {
@@ -312,7 +320,9 @@
     form.hidden = false;
   };
 
-  document.querySelectorAll("[data-open-form]").forEach((button) => {
+  document
+    .querySelectorAll('[data-open-form], main.landing-shell button[type="button"]:not([aria-controls])')
+    .forEach((button) => {
     button.addEventListener("click", () => {
       hideSuccess();
       openModal();
@@ -401,14 +411,21 @@
     });
   }
 
-  const revealElements = document.querySelectorAll(".reveal");
+  const revealElements = document.querySelectorAll(
+    ".reveal, .transition-all.duration-700.ease-out"
+  );
+
+  const revealElement = (element) => {
+    element.classList.add("is-visible", "opacity-100", "translate-y-0");
+    element.classList.remove("opacity-0", "translate-y-6");
+  };
 
   if ("IntersectionObserver" in window) {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
+            revealElement(entry.target);
             observer.unobserve(entry.target);
           }
         });
@@ -421,8 +438,56 @@
       observer.observe(element);
     });
   } else {
-    revealElements.forEach((element) => element.classList.add("is-visible"));
+    revealElements.forEach(revealElement);
   }
+
+  const faqAnswers = new Map([
+    ["O diagnóstico tem custo?", "Não. A solicitação e a primeira leitura são gratuitas. A reunião acontece quando existe fit entre o cenário da empresa e a forma como a Tetra Growth pode ajudar."],
+    ["Para quem o diagnóstico foi feito?", "Para empresas que já vendem, querem previsibilidade e precisam entender onde marketing, vendas ou estrutura digital estão limitando receita."],
+    ["Toda solicitação vira uma reunião?", "Não necessariamente. A equipe avalia as respostas do formulário e entra em contato quando há aderência para uma conversa estratégica."],
+    ["Preciso já ter equipe de marketing?", "Não. O diagnóstico considera o nível de maturidade atual da empresa, seja com equipe interna, parceiros externos ou uma estrutura ainda em construção."],
+    ["Quanto tempo dura a reunião?", "Normalmente a conversa dura entre 30 e 45 minutos, com foco em entender o cenário e indicar a prioridade mais importante."],
+  ]);
+
+  document
+    .querySelectorAll('button[aria-controls][data-orientation="vertical"]')
+    .forEach((button) => {
+      const content = document.getElementById(button.getAttribute("aria-controls"));
+      if (!content) return;
+
+      const answer = faqAnswers.get(button.textContent.trim());
+      if (answer && !content.textContent.trim()) {
+        const answerNode = document.createElement("div");
+        answerNode.className = "pb-6 text-sm leading-relaxed text-muted-foreground";
+        answerNode.textContent = answer;
+        content.appendChild(answerNode);
+      }
+
+      button.addEventListener("click", () => {
+        const isOpening = button.getAttribute("aria-expanded") !== "true";
+
+        document
+          .querySelectorAll('button[aria-controls][data-orientation="vertical"]')
+          .forEach((otherButton) => {
+            const otherContent = document.getElementById(otherButton.getAttribute("aria-controls"));
+            otherButton.setAttribute("aria-expanded", "false");
+            otherButton.setAttribute("data-state", "closed");
+            otherButton.closest("[data-state]")?.setAttribute("data-state", "closed");
+            if (otherContent) {
+              otherContent.hidden = true;
+              otherContent.setAttribute("data-state", "closed");
+            }
+          });
+
+        if (isOpening) {
+          button.setAttribute("aria-expanded", "true");
+          button.setAttribute("data-state", "open");
+          button.closest("[data-state]")?.setAttribute("data-state", "open");
+          content.hidden = false;
+          content.setAttribute("data-state", "open");
+        }
+      });
+    });
 
   document.querySelectorAll("[data-accordion] details").forEach((detail) => {
     detail.addEventListener("toggle", () => {
