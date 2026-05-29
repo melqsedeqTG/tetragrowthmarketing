@@ -17,6 +17,7 @@ await rm(outputDir, { force: true, recursive: true });
 await mkdir(outputDir, { recursive: true });
 
 await cp(join(rootDir, "index.html"), join(outputDir, "index.html"));
+await cp(join(rootDir, "styles-home.css"), join(outputDir, "styles-home.css"));
 await cp(join(rootDir, "assets"), join(outputDir, "assets"), { recursive: true });
 
 await mkdir(pg2OutputDir, { recursive: true });
