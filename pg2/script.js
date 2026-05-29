@@ -199,21 +199,94 @@
     };
   };
 
-  const buildPayload = () => ({
-    submitted_at: new Date().toISOString(),
-    origin: "Landing page - Diagnóstico de Marketing",
-    name: valueOf("name"),
-    whatsapp: valueOf("whatsapp"),
-    email: valueOf("email"),
-    company: valueOf("company"),
-    site_or_instagram: valueOf("siteOrInstagram"),
-    captures_clients_online: readableAnswer(valueOf("capturesClientsOnline")),
-    invests_minimum_2000_marketing: readableAnswer(valueOf("investsMinimumMarketing")),
-    produces_positioning_content: readableAnswer(valueOf("producesPositioningContent")),
-    has_digital_infrastructure: readableAnswer(valueOf("hasDigitalInfrastructure")),
-    hired_marketing_or_performance_services: readableAnswer(valueOf("hiredMarketingServices")),
-    ...getUtms(),
-  });
+  const normalizeText = (value) =>
+    String(value || "")
+      .trim()
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "");
+
+  const normalizeEmail = (value) =>
+    String(value || "")
+      .trim()
+      .toLowerCase();
+
+  const normalizePhone = (value) => {
+    let digits = String(value || "").replace(/\D/g, "");
+
+    if (digits.length === 10 || digits.length === 11) {
+      digits = "55" + digits;
+    }
+
+    return digits;
+  };
+
+  const splitFullName = (fullName) => {
+    const parts = normalizeText(fullName).split(/\s+/).filter(Boolean);
+
+    return {
+      first_name: parts[0] || "",
+      last_name: parts.length > 1 ? parts.slice(1).join(" ") : "",
+    };
+  };
+
+  const generateEventId = () => {
+    if (window.crypto && crypto.randomUUID) {
+      return crypto.randomUUID();
+    }
+
+    return `lead_${Date.now()}_${Math.random().toString(16).slice(2)}`;
+  };
+
+  const buildPayload = () => {
+    const eventId = generateEventId();
+
+    return {
+      event_id: eventId,
+      submitted_at: new Date().toISOString(),
+      origin: "Landing page - Diagnóstico de Marketing",
+      name: valueOf("name"),
+      whatsapp: valueOf("whatsapp"),
+      email: valueOf("email"),
+      company: valueOf("company"),
+      site_or_instagram: valueOf("siteOrInstagram"),
+      captures_clients_online: readableAnswer(valueOf("capturesClientsOnline")),
+      invests_minimum_2000_marketing: readableAnswer(valueOf("investsMinimumMarketing")),
+      produces_positioning_content: readableAnswer(valueOf("producesPositioningContent")),
+      has_digital_infrastructure: readableAnswer(valueOf("hasDigitalInfrastructure")),
+      hired_marketing_or_performance_services: readableAnswer(valueOf("hiredMarketingServices")),
+      ...getUtms(),
+    };
+  };
+
+  const pushLeadToDataLayer = (payload) => {
+    const nameParts = splitFullName(payload.name);
+
+    window.dataLayer = window.dataLayer || [];
+
+    window.dataLayer.push({
+      event: "generate_lead",
+      event_id: payload.event_id,
+      form_id: "diagnostico-popup-form",
+      form_name: "Diagnóstico de Marketing",
+      page_url: payload.page_url,
+      user_data: {
+        email: normalizeEmail(payload.email),
+        phone: normalizePhone(payload.whatsapp),
+        first_name: nameParts.first_name,
+        last_name: nameParts.last_name,
+      },
+      lead_data: {
+        company: payload.company,
+        site_or_instagram: payload.site_or_instagram,
+        captures_clients_online: payload.captures_clients_online,
+        invests_minimum_2000_marketing: payload.invests_minimum_2000_marketing,
+        produces_positioning_content: payload.produces_positioning_content,
+        has_digital_infrastructure: payload.has_digital_infrastructure,
+        hired_marketing_or_performance_services: payload.hired_marketing_or_performance_services,
+      },
+    });
+  };
 
   const setLoading = (loading) => {
     if (!submitButton) return;
@@ -301,12 +374,13 @@
       setLoading(true);
 
       try {
+        const payload = buildPayload();
         const response = await fetch(endpoint, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(buildPayload()),
+          body: JSON.stringify(payload),
         });
 
         const result = await response.json().catch(() => ({}));
@@ -315,6 +389,7 @@
           throw new Error(result.message || "Falha ao enviar diagnóstico.");
         }
 
+        pushLeadToDataLayer(payload);
         resetForm();
         showSuccess();
         showToast("Solicitação recebida! Em breve a Tetra entra em contato.");
