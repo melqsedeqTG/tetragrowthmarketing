@@ -11,7 +11,6 @@
   const stepLabel = document.querySelector("[data-step-label]");
   const stepDescription = document.querySelector("[data-step-description]");
   const progressBar = document.querySelector("[data-progress-bar]");
-  const nextButton = document.querySelector("[data-next-step]");
   const prevButton = document.querySelector("[data-prev-step]");
   const finalActions = document.querySelector("[data-final-actions]");
   const microcopy = document.querySelector("[data-microcopy]");
@@ -77,8 +76,8 @@
     const isStepOne = step === 1;
     if (stepOne) stepOne.hidden = !isStepOne;
     if (stepTwo) stepTwo.hidden = isStepOne;
-    if (nextButton) nextButton.hidden = !isStepOne;
-    if (finalActions) finalActions.hidden = isStepOne;
+    if (finalActions) finalActions.hidden = false;
+    if (prevButton) prevButton.hidden = isStepOne;
     if (microcopy) microcopy.hidden = isStepOne;
 
     if (stepLabel) stepLabel.textContent = `Etapa ${step} de 2`;
@@ -341,14 +340,6 @@
     }
   });
 
-  if (nextButton) {
-    nextButton.addEventListener("click", () => {
-      if (validateStepOne()) {
-        setStep(2);
-      }
-    });
-  }
-
   if (prevButton) {
     prevButton.addEventListener("click", () => {
       clearErrors();
@@ -410,6 +401,8 @@
       }
     });
   }
+
+  if (form) setStep(1);
 
   const revealElements = document.querySelectorAll(
     ".reveal, .transition-all.duration-700.ease-out"
