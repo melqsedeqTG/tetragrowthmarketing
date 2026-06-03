@@ -126,7 +126,7 @@ html,
   -o-tab-size: 4;
   tab-size: 4;
   font-family:
-    Inter,
+    "IBM Plex Sans",
     ui-sans-serif,
     system-ui,
     sans-serif,
@@ -400,7 +400,7 @@ html {
 body {
   background-color: hsl(var(--background));
   font-family:
-    Inter,
+    "IBM Plex Sans",
     ui-sans-serif,
     system-ui,
     sans-serif,
@@ -412,7 +412,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family:
-    Inter,
+    "IBM Plex Sans",
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
@@ -426,7 +426,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Sora, Inter, system-ui, sans-serif;
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
 }
 ::-moz-selection {
   background: hsl(var(--accent) / 0.28);
@@ -490,7 +490,7 @@ h6 {
   align-items: center;
   gap: 0.25rem;
   font-family:
-    Space Grotesk,
+    "IBM Plex Sans",
     sans-serif;
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -525,7 +525,7 @@ h6 {
   }
 }
 .display-title {
-  font-family: Sora, Inter, system-ui, sans-serif;
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: -0.055em;
@@ -584,7 +584,7 @@ h6 {
 
 .headline-tight {
   font-family:
-    Space Grotesk,
+    "IBM Plex Sans",
     sans-serif;
   font-weight: 600;
   text-transform: uppercase;
@@ -705,7 +705,7 @@ h6 {
 }
 .number-chip {
   font-family:
-    Space Grotesk,
+    "IBM Plex Sans",
     sans-serif;
   font-size: 0.75rem;
   line-height: 1rem;
@@ -2040,7 +2040,7 @@ h6 {
 }
 .font-display {
   font-family:
-    Space Grotesk,
+    "IBM Plex Sans",
     sans-serif;
 }
 .font-mono {
