@@ -333,53 +333,62 @@ video {
   display: none;
 }
 :root {
-  --background: 160 70% 2%;
-  --foreground: 160 20% 94%;
-  --card: 156 38% 5%;
-  --card-foreground: 160 20% 94%;
-  --popover: 156 38% 5%;
-  --popover-foreground: 160 20% 94%;
-  --primary: 158 100% 39%;
-  --primary-foreground: 160 80% 3%;
-  --secondary: 158 36% 7%;
-  --secondary-foreground: 160 18% 92%;
-  --muted: 158 26% 9%;
-  --muted-foreground: 160 8% 67%;
-  --accent: 158 100% 42%;
-  --accent-foreground: 160 85% 3%;
-  --destructive: 0 74% 58%;
-  --destructive-foreground: 210 40% 98%;
-  --border: 158 20% 14%;
-  --input: 158 20% 14%;
-  --ring: 158 100% 42%;
+  /* TETRA — Variação 06: Claro Técnico com Grade
+     Base visual: fundo branco cru, grade técnica aparente,
+     texto preto grafite, cards claros com borda/sombra e CTA verde. */
+
+  --tetra-verde-selva: 156 54% 11%; /* #0D2B1F */
+  --tetra-verde-acao: 150 65% 29%; /* #1A7A4A */
+  --tetra-preto-grafite: 0 0% 5%; /* #0C0C0C */
+  --tetra-branco-cru: 48 20% 95%; /* #F5F4F0 */
+  --tetra-areia: 40 24% 63%; /* #B8A98A */
+
+  --background: var(--tetra-branco-cru);
+  --foreground: var(--tetra-preto-grafite);
+
+  --card: 48 26% 98%;
+  --card-foreground: var(--tetra-preto-grafite);
+
+  --popover: 48 26% 98%;
+  --popover-foreground: var(--tetra-preto-grafite);
+
+  --primary: var(--tetra-verde-acao);
+  --primary-foreground: var(--tetra-branco-cru);
+
+  --secondary: 44 25% 91%;
+  --secondary-foreground: var(--tetra-preto-grafite);
+
+  --muted: 43 18% 88%;
+  --muted-foreground: 0 0% 22%;
+
+  --accent: var(--tetra-verde-acao);
+  --accent-foreground: var(--tetra-branco-cru);
+
+  --destructive: 4 74% 46%;
+  --destructive-foreground: var(--tetra-branco-cru);
+
+  --border: 42 13% 76%;
+  --input: 42 13% 76%;
+  --ring: var(--tetra-verde-acao);
+
   --radius: 1.1rem;
+
   --page-gradient:
-    radial-gradient(
-      circle at 50% 0%,
-      hsl(158 78% 12% / 0.35),
-      transparent 34rem
-    ),
-    radial-gradient(
-      circle at 12% 28%,
-      hsl(158 100% 24% / 0.12),
-      transparent 28rem
-    ),
-    linear-gradient(
-      180deg,
-      hsl(160 75% 1%) 0%,
-      hsl(160 58% 3%) 48%,
-      hsl(160 75% 2%) 100%
-    );
+    linear-gradient(hsl(var(--tetra-preto-grafite) / 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--tetra-preto-grafite) / 0.045) 1px, transparent 1px),
+    radial-gradient(circle at 50% -10%, hsl(var(--tetra-areia) / 0.18), transparent 34rem),
+    linear-gradient(180deg, hsl(var(--tetra-branco-cru)) 0%, hsl(48 18% 93%) 50%, hsl(var(--tetra-branco-cru)) 100%);
+
   --hero-grid:
-    linear-gradient(hsl(158 25% 18% / 0.13) 1px, transparent 1px),
-    linear-gradient(90deg, hsl(158 25% 18% / 0.13) 1px, transparent 1px);
-  --card-gradient: linear-gradient(
-    180deg,
-    hsl(158 42% 6% / 0.82),
-    hsl(158 35% 4% / 0.92)
-  );
+    linear-gradient(hsl(var(--tetra-preto-grafite) / 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--tetra-preto-grafite) / 0.055) 1px, transparent 1px);
+
+  --card-gradient:
+    linear-gradient(180deg, hsl(48 30% 99% / 0.98), hsl(48 18% 94% / 0.98));
+
   --button-shadow:
-    0 0 0 1px hsl(158 100% 53% / 0.08), 0 16px 50px hsl(158 100% 42% / 0.18);
+    0 0 0 1px hsl(var(--tetra-verde-acao) / 0.18),
+    0 16px 38px hsl(var(--tetra-verde-acao) / 0.22);
 }
 * {
   border-color: hsl(var(--border));
@@ -523,7 +532,7 @@ h6 {
   color: hsl(var(--foreground));
 }
 
-------------------------------------
+
 /* AJUSTE FINAL DA HEADLINE DO HERO */
 .hero-title {
   max-width: 720px !important;
@@ -572,7 +581,7 @@ h6 {
     font-size: 50px !important;
   }
 }
-------------------------------------
+
 .headline-tight {
   font-family:
     Space Grotesk,
@@ -4086,12 +4095,6 @@ body.modal-open {
   background: hsl(var(--accent));
   color: hsl(var(--accent-foreground));
 }
-.lead-actions-row.is-step-one {
-  grid-template-columns: minmax(0, 1fr);
-}
-.lead-actions-row.is-step-one [data-submit-button] {
-  width: 100%;
-}
 .toast {
   position: fixed;
   right: 1rem;
@@ -4119,4 +4122,245 @@ body.modal-open {
   border-color: hsl(var(--destructive) / 0.7);
   color: hsl(var(--destructive-foreground));
   background: hsl(var(--destructive) / 0.95);
+}
+
+
+/* ==========================================================
+   VARIAÇÃO 06 — CLARO TÉCNICO COM GRADE
+   Esta variação não usa a base visual do Modo Mínimo.
+   Ela força o estilo da referência enviada: página clara,
+   grade técnica visível, cards brancos e CTA verde.
+   ========================================================== */
+
+html,
+body {
+  background: hsl(var(--tetra-branco-cru)) !important;
+  color: hsl(var(--tetra-preto-grafite)) !important;
+}
+
+.landing-shell,
+.hero-bg,
+.section-frame {
+  background-color: hsl(var(--tetra-branco-cru)) !important;
+  background-image: var(--page-gradient) !important;
+  background-size: 82px 82px, 82px 82px, auto, auto !important;
+  color: hsl(var(--tetra-preto-grafite)) !important;
+}
+
+.section-frame {
+  border-color: hsl(var(--tetra-preto-grafite) / 0.10) !important;
+}
+
+.section-frame:before {
+  background-image: var(--hero-grid) !important;
+  background-size: 82px 82px !important;
+  opacity: 0.62 !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+
+.display-title,
+.headline-tight,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.text-foreground,
+.text-card-foreground,
+.text-popover-foreground,
+.text-secondary-foreground {
+  color: hsl(var(--tetra-preto-grafite)) !important;
+}
+
+.copy-muted,
+.text-muted-foreground,
+.text-muted-foreground\/80,
+.text-foreground\/50,
+.text-foreground\/60,
+.text-foreground\/70,
+.text-foreground\/75,
+.text-foreground\/80,
+.text-foreground\/85 {
+  color: hsl(var(--tetra-preto-grafite) / 0.74) !important;
+}
+
+.border,
+.border-border,
+.border-border\/50,
+.border-border\/60,
+.border-border\/70,
+.border-input {
+  border-color: hsl(var(--tetra-preto-grafite) / 0.16) !important;
+}
+
+.bg-background,
+.bg-background\/40,
+.bg-background\/45,
+.bg-background\/70,
+.bg-background\/75,
+.bg-background\/80,
+.bg-background\/90,
+.bg-background\/95,
+.bg-card,
+.bg-card\/55,
+.bg-popover {
+  background-color: hsl(48 30% 98% / 0.94) !important;
+  color: hsl(var(--tetra-preto-grafite)) !important;
+}
+
+.bg-secondary,
+.bg-secondary\/20,
+.bg-secondary\/30,
+.bg-muted,
+.bg-muted\/50 {
+  background-color: hsl(44 22% 90% / 0.74) !important;
+  color: hsl(var(--tetra-preto-grafite)) !important;
+}
+
+.bg-border,
+.bg-border\/50,
+.bg-border\/60,
+.bg-border\/70 {
+  background-color: hsl(var(--tetra-preto-grafite) / 0.12) !important;
+}
+
+.bg-black\/80 {
+  background-color: hsl(var(--tetra-preto-grafite) / 0.72) !important;
+}
+
+.bg-foreground,
+.bg-foreground\/\[0\.035\] {
+  background-color: hsl(var(--tetra-preto-grafite) / 0.05) !important;
+}
+
+.bg-\[linear-gradient\(hsl\(158_20\%_16\%\/0\.12\)_1px\,transparent_1px\)\,linear-gradient\(90deg\,hsl\(158_20\%_16\%\/0\.12\)_1px\,transparent_1px\)\] {
+  background-image: var(--hero-grid) !important;
+  opacity: 0.70 !important;
+}
+
+.from-background {
+  --tw-gradient-from: hsl(var(--tetra-branco-cru)) var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: hsl(var(--tetra-branco-cru) / 0) var(--tw-gradient-to-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+
+.from-primary\/5 {
+  --tw-gradient-from: hsl(var(--tetra-verde-acao) / 0.06) var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: hsl(var(--tetra-verde-acao) / 0) var(--tw-gradient-to-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+
+.via-accent\/45 {
+  --tw-gradient-to: hsl(var(--tetra-verde-acao) / 0) var(--tw-gradient-to-position) !important;
+  --tw-gradient-stops:
+    var(--tw-gradient-from),
+    hsl(var(--tetra-verde-acao) / 0.40) var(--tw-gradient-via-position),
+    var(--tw-gradient-to) !important;
+}
+
+.soft-card,
+.rounded-\[1\.65rem\].border,
+.rounded-2xl.border,
+.rounded-xl.border,
+.rounded-lg.border {
+  border-color: hsl(var(--tetra-preto-grafite) / 0.16) !important;
+  background-color: hsl(48 30% 98% / 0.92) !important;
+  background-image: var(--card-gradient) !important;
+  color: hsl(var(--tetra-preto-grafite)) !important;
+  box-shadow:
+    inset 0 1px hsl(0 0% 100% / 0.96),
+    0 18px 48px hsl(var(--tetra-preto-grafite) / 0.09),
+    0 0 0 1px hsl(var(--tetra-preto-grafite) / 0.035) !important;
+}
+
+.soft-card p,
+.soft-card span,
+.soft-card li,
+.rounded-\[1\.65rem\].border p,
+.rounded-2xl.border p,
+.rounded-xl.border p,
+.rounded-lg.border p {
+  color: hsl(var(--tetra-preto-grafite) / 0.84) !important;
+}
+
+.number-chip,
+.eyebrow,
+.text-accent,
+.text-primary,
+.brand-wordmark span {
+  color: hsl(150 68% 24%) !important;
+}
+
+.tg-button,
+.bg-accent,
+.bg-primary {
+  background-color: hsl(var(--tetra-verde-acao)) !important;
+  color: hsl(var(--tetra-branco-cru)) !important;
+  box-shadow: var(--button-shadow) !important;
+}
+
+.tg-button:hover,
+.bg-accent:hover,
+.bg-primary:hover {
+  background-color: hsl(150 70% 24%) !important;
+  color: hsl(var(--tetra-branco-cru)) !important;
+}
+
+.tg-button-outline {
+  border-color: hsl(var(--tetra-preto-grafite) / 0.20) !important;
+  background-color: hsl(48 30% 98% / 0.88) !important;
+  color: hsl(var(--tetra-preto-grafite)) !important;
+  box-shadow:
+    inset 0 1px hsl(0 0% 100% / 0.92),
+    0 12px 30px hsl(var(--tetra-preto-grafite) / 0.07) !important;
+}
+
+.tg-button-outline:hover {
+  border-color: hsl(var(--tetra-verde-acao)) !important;
+  background-color: hsl(var(--tetra-verde-acao)) !important;
+  color: hsl(var(--tetra-branco-cru)) !important;
+}
+
+.bg-accent\/10,
+.bg-primary\/10 {
+  background-color: hsl(var(--tetra-verde-acao) / 0.10) !important;
+}
+
+.bg-accent\/15,
+.bg-primary\/15 {
+  background-color: hsl(var(--tetra-verde-acao) / 0.15) !important;
+}
+
+.bg-accent\/55 {
+  background-color: hsl(var(--tetra-verde-acao) / 0.58) !important;
+}
+
+.border-accent\/20,
+.border-accent\/30,
+.border-primary\/20,
+.border-primary\/30 {
+  border-color: hsl(var(--tetra-verde-acao) / 0.36) !important;
+}
+
+input,
+textarea,
+select {
+  background-color: hsl(48 30% 98% / 0.95) !important;
+  color: hsl(var(--tetra-preto-grafite)) !important;
+  border-color: hsl(var(--tetra-preto-grafite) / 0.20) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: hsl(var(--tetra-preto-grafite) / 0.46) !important;
+}
+
+.ring-offset-background {
+  --tw-ring-offset-color: hsl(var(--tetra-branco-cru)) !important;
+}
+
+.shadow-background\/10 {
+  --tw-shadow-color: hsl(var(--tetra-preto-grafite) / 0.10) !important;
 }
