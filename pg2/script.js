@@ -13,6 +13,7 @@
   const progressBar = document.querySelector("[data-progress-bar]");
   const prevButton = document.querySelector("[data-prev-step]");
   const finalActions = document.querySelector("[data-final-actions]");
+  const actionsRow = document.querySelector("[data-actions-row]");
   const microcopy = document.querySelector("[data-microcopy]");
   const submitButton = document.querySelector("[data-submit-button]");
   const currentYear = document.querySelector("[data-current-year]");
@@ -77,7 +78,11 @@
     if (stepOne) stepOne.hidden = !isStepOne;
     if (stepTwo) stepTwo.hidden = isStepOne;
     if (finalActions) finalActions.hidden = false;
-    if (prevButton) prevButton.hidden = isStepOne;
+    if (prevButton) {
+      prevButton.hidden = isStepOne;
+      prevButton.style.display = isStepOne ? "none" : "";
+    }
+    if (actionsRow) actionsRow.classList.toggle("is-step-one", isStepOne);
     if (microcopy) microcopy.hidden = isStepOne;
 
     if (stepLabel) stepLabel.textContent = `Etapa ${step} de 2`;

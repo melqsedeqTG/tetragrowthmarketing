@@ -4086,6 +4086,12 @@ body.modal-open {
   background: hsl(var(--accent));
   color: hsl(var(--accent-foreground));
 }
+.lead-actions-row.is-step-one {
+  grid-template-columns: minmax(0, 1fr);
+}
+.lead-actions-row.is-step-one [data-submit-button] {
+  width: 100%;
+}
 .toast {
   position: fixed;
   right: 1rem;
