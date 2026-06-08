@@ -27,6 +27,9 @@ await cp(join(pg2Dir, "script.js"), join(pg2OutputDir, "script.js"));
 await cp(join(pg2Dir, "config.js"), join(pg2OutputDir, "config.js"));
 await cp(join(pg2Dir, "favicon.ico"), join(pg2OutputDir, "favicon.ico"));
 await cp(join(pg2Dir, "robots.txt"), join(pg2OutputDir, "robots.txt"));
+await cp(join(pg2Dir, "assets"), join(pg2OutputDir, "assets"), {
+  recursive: true,
+});
 await writeFile(
   join(pg2OutputDir, "config.js"),
   [
