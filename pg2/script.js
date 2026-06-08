@@ -349,7 +349,6 @@
         pushLeadToDataLayer(payload);
         resetForm();
         showSuccess();
-        showToast("Solicitação recebida! Em breve a Tetra entra em contato.");
       } catch (error) {
         showToast(error.message || "Não foi possível enviar sua solicitação. Tente novamente.", "error");
       } finally {
