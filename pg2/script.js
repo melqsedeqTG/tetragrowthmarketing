@@ -405,4 +405,22 @@
       }
     });
   });
+
+  const logoTicker = document.querySelector("[data-logo-ticker]");
+
+  if (logoTicker) {
+    const track = logoTicker.querySelector(".logo-ticker__track");
+    const originalGroup = logoTicker.querySelector(".logo-ticker__group");
+
+    if (track && originalGroup) {
+      const clone = originalGroup.cloneNode(true);
+      clone.setAttribute("aria-hidden", "true");
+      clone.querySelectorAll("img").forEach((img) => img.setAttribute("alt", ""));
+      track.appendChild(clone);
+
+      window.requestAnimationFrame(() => {
+        logoTicker.classList.add("is-ready");
+      });
+    }
+  }
 })();

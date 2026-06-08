@@ -51,7 +51,12 @@ body.modal-open {
 }
 
 p {
-  font-size: 0.875rem !important;
+  font-size: 16px !important;
+  color: hsl(0deg 0% 5% / 80%) !important;
+}
+
+h2 {
+  font-size: 30px !important;
 }
 
 button,
@@ -61,6 +66,12 @@ input {
 
 button {
   cursor: pointer;
+  font-weight: 600;
+  border-radius: 0.65rem;
+  border-top-left-radius: 0.65rem;
+  border-top-right-radius: 0.65rem;
+  border-bottom-right-radius: 0.65rem;
+  border-bottom-left-radius: 0.65rem;
 }
 
 a {
@@ -201,9 +212,13 @@ svg {
   min-height: 3.5rem;
   border: 0;
   border-radius: 0.65rem;
+  border-top-left-radius: 0.65rem;
+  border-top-right-radius: 0.65rem;
+  border-bottom-right-radius: 0.65rem;
+  border-bottom-left-radius: 0.65rem;
   padding: 1rem 1.75rem;
   font-size: 0.875rem;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.25rem;
   text-transform: uppercase;
   letter-spacing: 0.16em;
@@ -235,7 +250,11 @@ svg {
 }
 
 .button-outline {
-  border-radius: 999px;
+  border-radius: 0.65rem;
+  border-top-left-radius: 0.65rem;
+  border-top-right-radius: 0.65rem;
+  border-bottom-right-radius: 0.65rem;
+  border-bottom-left-radius: 0.65rem;
   letter-spacing: 0.22em;
 }
 
@@ -346,6 +365,71 @@ svg {
   line-height: 1.65;
 }
 
+.logo-ticker-section {
+  --ticker-gap: clamp(40px, 6vw, 96px);
+  --ticker-duration: 42s;
+  --logo-width: clamp(150px, 16.25vw, 287.5px);
+  --logo-height: clamp(80px, 10vw, 130px);
+  width: 100%;
+  overflow: hidden;
+  padding: 25px;
+  border-bottom: 1px solid hsl(var(--foreground) / 0.10);
+  background: hsl(var(--background));
+}
+
+.logo-ticker {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  overflow: hidden;
+  background: transparent;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.logo-ticker.is-ready {
+  opacity: 1;
+}
+
+.logo-ticker__track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  transform: translate3d(0, 0, 0);
+  animation: logoTicker var(--ticker-duration) linear infinite;
+  will-change: transform;
+}
+
+.logo-ticker__group {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: var(--ticker-gap);
+  padding-right: var(--ticker-gap);
+}
+
+.logo-ticker__logo {
+  display: block;
+  flex: 0 0 auto;
+  width: var(--logo-width);
+  height: var(--logo-height);
+  object-fit: contain;
+  opacity: 0.9;
+  pointer-events: none;
+  user-select: none;
+}
+
+@keyframes logoTicker {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
 .section-frame {
   position: relative;
   overflow: hidden;
@@ -383,8 +467,9 @@ svg {
 
 .cards-five {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  gap: 16px;
   margin-top: 2rem;
 }
 
@@ -399,12 +484,23 @@ svg {
 }
 
 .cards-five .soft-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: 16px;
   padding: 1.5rem;
-  min-height: 12rem;
+  height: 100%;
+  min-height: 1.5rem;
+}
+
+.cards-five .number-chip {
+  grid-column: 1;
+  flex-shrink: 0;
 }
 
 .cards-five .soft-card p {
-  margin-top: 2rem;
+  grid-column: 2;
+  margin: 0;
   color: hsl(var(--foreground) / 0.84);
   font-size: 0.875rem;
   line-height: 1.65;
@@ -719,6 +815,176 @@ svg {
   line-height: 1.65;
 }
 
+.tetra-about {
+  --about-preto: #0c0c0c;
+  --about-branco: #f5f4f0;
+  --about-verde-acao: #1a7a4a;
+  --about-ink: #121212;
+  --about-line: rgba(12, 12, 12, 0.12);
+  --about-grid: rgba(12, 12, 12, 0.045);
+  --about-shadow-card: 0 14px 38px rgba(12, 12, 12, 0.08);
+  --about-text-body-lg: clamp(1.125rem, 1.4vw, 1.25rem);
+  --about-text-caption: 0.75rem;
+  --about-line-caption: 1.4;
+  --about-tracking-wide: 0.08em;
+  width: 100%;
+  padding: clamp(72px, 9vw, 118px) 20px;
+  overflow: hidden;
+  background:
+    linear-gradient(var(--about-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--about-grid) 1px, transparent 1px),
+    var(--about-branco);
+  background-size: 72px 72px;
+  color: var(--about-ink);
+  font-family: IBM Plex Sans, system-ui, sans-serif;
+}
+
+.tetra-about__container {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: center;
+  gap: clamp(48px, 8vw, 104px);
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+.tetra-about__visual {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 260px;
+}
+
+.tetra-founders {
+  position: relative;
+  width: min(370px, 100%);
+  height: 220px;
+}
+
+.tetra-founder {
+  position: absolute;
+  top: 50%;
+  width: clamp(152px, 15vw, 188px);
+  aspect-ratio: 1 / 1;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--about-line);
+  border-radius: 999px;
+  background: #fffdf8;
+  box-shadow: var(--about-shadow-card);
+}
+
+.tetra-founder::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 3px rgba(26, 122, 74, 0.18);
+  pointer-events: none;
+}
+
+.tetra-founder img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tetra-founder--one {
+  left: 0;
+  z-index: 2;
+  transform: translateY(-50%);
+}
+
+.tetra-founder--two {
+  left: clamp(132px, 11vw, 150px);
+  z-index: 1;
+  transform: translateY(-50%);
+}
+
+.tetra-about__content {
+  max-width: 660px;
+}
+
+.tetra-about__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  min-height: 42px;
+  margin-bottom: clamp(28px, 4vw, 42px);
+  padding: 0 16px;
+  border: 1px solid var(--about-line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--about-ink);
+  font-family: IBM Plex Sans, system-ui, sans-serif;
+  font-size: var(--about-text-caption);
+  font-weight: 600;
+  line-height: var(--about-line-caption);
+  letter-spacing: var(--about-tracking-wide);
+  text-transform: uppercase;
+}
+
+.tetra-about__chip span {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: var(--about-verde-acao);
+}
+
+.tetra-about__text {
+  display: grid;
+  gap: 24px;
+}
+
+.tetra-about__text p {
+  margin: 0;
+  font-family: IBM Plex Sans, system-ui, sans-serif;
+  font-size: var(--about-text-body-lg) !important;
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: -0.015em;
+}
+
+.tetra-about__text strong {
+  color: var(--about-preto);
+  font-weight: 600;
+}
+
+.tetra-about__social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-top: 34px;
+  border: 1px solid var(--about-line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--about-preto);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    color 180ms ease;
+}
+
+.tetra-about__social svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+}
+
+.tetra-about__social:hover {
+  transform: translateY(-2px);
+  border-color: rgba(26, 122, 74, 0.42);
+  background: rgba(26, 122, 74, 0.08);
+  color: var(--about-verde-acao);
+}
+
 .site-footer {
   border-top: 1px solid hsl(var(--foreground) / 0.10);
   background: hsl(var(--background));
@@ -868,7 +1134,11 @@ svg {
   width: 2rem;
   height: 2rem;
   border: 1px solid hsl(var(--accent));
-  border-radius: 0.375rem;
+  border-radius: 0.65rem;
+  border-top-left-radius: 0.65rem;
+  border-top-right-radius: 0.65rem;
+  border-bottom-right-radius: 0.65rem;
+  border-bottom-left-radius: 0.65rem;
   background: hsl(var(--accent));
   color: hsl(var(--background));
   box-shadow: var(--button-shadow);
@@ -1164,7 +1434,6 @@ svg {
 }
 
 @media (max-width: 1023px) {
-  .cards-five,
   .steps-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1191,7 +1460,66 @@ svg {
   }
 }
 
+@media (max-width: 900px) {
+  .tetra-about__container {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .tetra-about__visual {
+    min-height: 210px;
+  }
+
+  .tetra-founders {
+    width: 330px;
+    height: 190px;
+  }
+
+  .tetra-founder--two {
+    left: 134px;
+  }
+
+  .tetra-about__content {
+    max-width: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo-ticker-section {
+    --ticker-gap: 48px;
+    --ticker-duration: 32s;
+    --logo-width: 175px;
+    --logo-height: 95px;
+  }
+
+  .cards-five {
+    grid-template-columns: 1fr;
+  }
+
+  .cards-five .soft-card {
+    grid-template-columns: auto 1fr;
+  }
+}
+
 @media (max-width: 767px) {
+  body h1,
+  body h2 {
+    text-align: left;
+  }
+
+  body p {
+    text-align: left;
+  }
+
+  .hero-section.sec-01 h1,
+  .hero-section.sec-01 h2 {
+    text-align: center;
+  }
+
+  .hero-section.sec-01 p {
+    text-align: center;
+  }
+
   .section-frame,
   .cta-section {
     padding: 5rem 0;
@@ -1261,6 +1589,40 @@ svg {
   }
 }
 
+@media (max-width: 520px) {
+  .tetra-about {
+    padding: 64px 16px;
+  }
+
+  .tetra-about__visual {
+    min-height: 160px;
+  }
+
+  .tetra-founders {
+    width: 270px;
+    height: 158px;
+  }
+
+  .tetra-founder {
+    width: 150px;
+  }
+
+  .tetra-founder--two {
+    left: 118px;
+  }
+
+  .tetra-about__chip {
+    min-height: 40px;
+    padding: 0 14px;
+    font-size: 10px;
+  }
+
+  .tetra-about__text p {
+    font-size: 15.5px !important;
+    line-height: 1.72;
+  }
+}
+
 @media (max-width: 480px) {
   .hero-title {
     max-width: 355px;
@@ -1306,7 +1668,7 @@ svg {
 .btn-hero-diagnostico {
   font-size: 0.875rem;
   line-height: 1.25rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.22em;
 }
 
@@ -1347,7 +1709,7 @@ svg {
 .num-problema-04,
 .num-problema-05 {
   font-family: IBM Plex Sans, system-ui, sans-serif;
-  font-size: 1rem;
+  font-size: 1.3rem;
   line-height: 1rem;
   font-weight: 700;
   letter-spacing: 0.28em;
@@ -1364,7 +1726,7 @@ svg {
 .btn-problema-continuar {
   font-size: 0.875rem;
   line-height: 1.25rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.16em;
 }
 
@@ -1409,7 +1771,7 @@ svg {
 .btn-trafego-analise {
   font-size: 0.875rem;
   line-height: 1.25rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.22em;
 }
 
@@ -1475,7 +1837,7 @@ svg {
 .btn-diagnostico-solicitar {
   font-size: 0.875rem;
   line-height: 1.25rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.16em;
 }
 
@@ -1524,7 +1886,7 @@ svg {
 .btn-clareza-comecar {
   font-size: 0.875rem;
   line-height: 1.25rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.16em;
 }
 
@@ -1584,7 +1946,7 @@ svg {
 .btn-processo-solicitar {
   font-size: 0.875rem;
   line-height: 1.25rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.22em;
 }
 
@@ -1682,7 +2044,7 @@ svg {
 .btn-cta-solicitar {
   font-size: 0.875rem;
   line-height: 1.25rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.16em;
 }
 
@@ -1850,7 +2212,7 @@ svg {
 .btn-modal-success-close {
   font-size: 0.875rem;
   line-height: 1.25rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.16em;
 }
 
