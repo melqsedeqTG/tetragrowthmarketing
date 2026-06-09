@@ -141,6 +141,85 @@ svg {
   border: 0;
 }
 
+/* Utility fallback used by the privacy page when served without Tailwind. */
+.fixed { position: fixed; }
+.top-0 { top: 0; }
+.bottom-0 { bottom: 0; }
+.right-0 { right: 0; }
+.z-\[100\] { z-index: 100; }
+.flex { display: flex; }
+.inline-flex { display: inline-flex; }
+.items-center { align-items: center; }
+.flex-col { flex-direction: column; }
+.flex-col-reverse { flex-direction: column-reverse; }
+.w-full { width: 100%; }
+.max-h-screen { max-height: 100vh; }
+.min-h-screen { min-height: 100vh; }
+.max-w-3xl { max-width: 48rem; }
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+.mt-16 { margin-top: 4rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-3 { margin-bottom: 0.75rem; }
+.mb-12 { margin-bottom: 3rem; }
+.p-4 { padding: 1rem; }
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+.py-20 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+.pt-8 { padding-top: 2rem; }
+.pl-6 { padding-left: 1.5rem; }
+.gap-2 { gap: 0.5rem; }
+.space-y-2 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.5rem; }
+.space-y-10 > :not([hidden]) ~ :not([hidden]) { margin-top: 2.5rem; }
+.border-t { border-top: 1px solid; }
+.border-border { border-color: hsl(var(--border) / 0.16); }
+.bg-background { background: hsl(var(--background)); }
+.text-center { text-align: center; }
+.font-display { font-family: IBM Plex Sans, system-ui, sans-serif; }
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+.leading-relaxed { line-height: 1.625; }
+.list-disc { list-style: disc; }
+.text-foreground { color: hsl(var(--foreground)) !important; }
+.text-muted-foreground { color: hsl(var(--muted)) !important; }
+.text-primary { color: hsl(var(--accent)) !important; }
+.transition-colors {
+  transition-duration: 150ms;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+}
+.hover\:text-foreground:hover { color: hsl(var(--foreground)) !important; }
+.hover\:underline:hover { text-decoration: underline; }
+
+@media (min-width: 640px) {
+  .sm\:bottom-0 { bottom: 0; }
+  .sm\:right-0 { right: 0; }
+  .sm\:top-auto { top: auto; }
+  .sm\:flex-col { flex-direction: column; }
+}
+
+@media (min-width: 768px) {
+  .md\:max-w-\[420px\] { max-width: 420px; }
+}
+
 .display-title,
 .headline-tight,
 .form-header h3,

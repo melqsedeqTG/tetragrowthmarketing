@@ -12,6 +12,13 @@ const normalizeEnvValue = (value) => {
 
 const leadEndpoint =
   normalizeEnvValue(process.env.VITE_LEAD_ENDPOINT) || "/api/diagnostico";
+const leadConfigContent = [
+  `window.__TETRA_LEAD_ENDPOINT__ = ${JSON.stringify(leadEndpoint)};`,
+  "document.documentElement.dataset.leadEndpoint = window.__TETRA_LEAD_ENDPOINT__;",
+  "",
+].join("\n");
+
+const writeLeadConfig = (dir) => writeFile(join(dir, "config.js"), leadConfigContent);
 
 await rm(outputDir, { force: true, recursive: true });
 await mkdir(outputDir, { recursive: true });
@@ -30,16 +37,21 @@ await cp(join(pg2Dir, "robots.txt"), join(pg2OutputDir, "robots.txt"));
 await cp(join(pg2Dir, "assets"), join(pg2OutputDir, "assets"), {
   recursive: true,
 });
-await writeFile(
-  join(pg2OutputDir, "config.js"),
-  [
-    `window.__TETRA_LEAD_ENDPOINT__ = ${JSON.stringify(leadEndpoint)};`,
-    "document.documentElement.dataset.leadEndpoint = window.__TETRA_LEAD_ENDPOINT__;",
-    "",
-  ].join("\n"),
-);
+await writeLeadConfig(pg2OutputDir);
 await cp(
   join(pg2Dir, "politica-de-privacidade"),
   join(pg2OutputDir, "politica-de-privacidade"),
+  { recursive: true },
+);
+
+// Root aliases keep pg2 working if the landing HTML is served or rewritten at /.
+await cp(join(pg2Dir, "styles.css"), join(outputDir, "styles.css"));
+await cp(join(pg2Dir, "script.js"), join(outputDir, "script.js"));
+await cp(join(pg2Dir, "favicon.ico"), join(outputDir, "favicon.ico"));
+await cp(join(pg2Dir, "robots.txt"), join(outputDir, "robots.txt"));
+await writeLeadConfig(outputDir);
+await cp(
+  join(pg2Dir, "politica-de-privacidade"),
+  join(outputDir, "politica-de-privacidade"),
   { recursive: true },
 );
